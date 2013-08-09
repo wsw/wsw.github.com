@@ -1,0 +1,3 @@
+Sitemap: https://caolvchong.github.io/atom.xml
+User-agent: *
+Disallow:

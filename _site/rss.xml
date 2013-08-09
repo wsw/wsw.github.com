@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Tom's Blog</title>
+        <description>Tom's Blog - Tom</description>
+        <link>http://caolvchong.github.io</link>
+        <link>http://caolvchong.github.io</link>
+        <lastBuildDate>2013-08-09T14:50:16+08:00</lastBuildDate>
+        <pubDate>2013-08-09T14:50:16+08:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Widget的使用</title>
+                <description>&lt;h3 id='widget'&gt;Widget基类&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/caolvchong/gazira' title='a javascript library for web develop'&gt;gazira&lt;/a&gt; 的Widget实际上来自 &lt;a href='http://aralejs.org/' title='支付宝前端架构'&gt;arale&lt;/a&gt;，因此可以从 &lt;a href='http://aralejs.org/widget/' title='Widget文档'&gt;Widget 文档&lt;/a&gt; 来获使用上的帮助。这里会结合使用，对Widget做个介绍。&lt;/p&gt;
+
+&lt;p&gt;Widget 顾名思义：部件、组件，诸如弹出窗、日历等等都属于组件。 诸多可以复用的组件可以封装，实践多了会发现，组件虽然形态功能千差万别，但是基础流程是大致相同的： 初始化属性 -&amp;gt; 生成DOM -&amp;gt; 事件处理与方法调用 -&amp;gt; 销毁&lt;/p&gt;
+
+&lt;p&gt;因此抽象层面，Widget具有生命周期： initialize、render、destroy； 在OO层面，Widget又是需要继承的；在业务层面，Widget需要有事件支持。&lt;/p&gt;
+
+&lt;p&gt;基于上面的要求，我们的组件基类Widget是这样实现的： Widget继承自&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt;。&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt;是无关DOM操作的一个类，由&lt;a href='http://aralejs.org/class/' title='Class文档'&gt;Class&lt;/a&gt;创建，提供了OO支持；同时混入 &lt;a href='http://aralejs.org/events/' title='Events文档'&gt;Events&lt;/a&gt; 事件、 &lt;a href='http://aralejs.org/base/docs/aspect.html' title='Aspect文档'&gt;Aspect&lt;/a&gt; 切面、 &lt;a href='http://aralejs.org/base/docs/attribute.html' title='Attribute文档'&gt;Attribute&lt;/a&gt; 属性操作 功能。 Widget本身提供了对DOM操作的常用操作，这样就提供了一套组件基类的解决方案。&lt;/p&gt;
+
+&lt;h3 id='widget'&gt;Widget骨架&lt;/h3&gt;
+&lt;pre class='js' name='code'&gt;
+Widget.extend({
+    attrs: {
+        id: null,
+        className: null,
+        style: null,
+        template: '&lt;div /&gt;',
+        parentNode: document.body，
+        ...
+    },
+    events: {
+        'click [data-action=close]': function(e) {
+            this.hide();
+            return false;
+        }
+    },
+    setup: function() {
+    },
+    ...
+
+    _onRenderX: function() {
+
+    }
+});
+// render/destroy/$
+&lt;/pre&gt;
+&lt;p&gt;通常，直接使用&lt;a href='http://aralejs.org/class/' title='Class文档'&gt;Class&lt;/a&gt;，&lt;a href='http://aralejs.org/events/' title='Events文档'&gt;Events&lt;/a&gt;，&lt;a href='http://aralejs.org/base/docs/aspect.html' title='Aspect文档'&gt;Aspect&lt;/a&gt;，&lt;a href='http://aralejs.org/base/docs/attribute.html' title='Attribute文档'&gt;Attribute&lt;/a&gt;，&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt; 的机会不多，但需要了解他们的使用，才能对Widget的使用更深入。&lt;/p&gt;
+
+&lt;h3 id='class_api'&gt;Class API简介&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://aralejs.org/class/' title='Class文档'&gt;Class&lt;/a&gt; 提供create方法，来创建一个满足OO的“类” &lt;pre class='js' name='code'&gt;
+var MyClass = Class.create({
+    // 初始化方法，在构建实例时调用
+    initialize: function(name, age) {
+        this.name = name;
+        this.age = age;
+    },
+    talk: function(word) {
+        return this.name + ':' + word;
+    }
+});
+// 调用
+var o = new MyClass('Tom', 27);
+o.talk('hello');
+&lt;/pre&gt; &lt;input id='btn1' type='button' value='点击看看' /&gt;&lt;/p&gt;
+
+&lt;p&gt;所有由Class.create创建的类都具有extend方法，使用该方法表示从该类继承。&lt;br /&gt; 子类访问父类使用 &lt;code&gt;子类名.superclass.父类方法名.call/apply(this, 参数)&lt;/code&gt; 方式 &lt;pre class='js' name='code'&gt;
+var ExtClass = MyClass.extend({
+    initialize: function(name, age) {
+        ExtClass.superclass.initialize.call(this, name, age);
+    },
+    work: function() {
+        return 'I am working';
+    }
+});
+&lt;/pre&gt; &lt;input id='btn2' type='button' value='点击看看' /&gt;&lt;/p&gt;
+
+&lt;p&gt;由Class.create创建的类还可以支持多继承，由&lt;code&gt;Implements&lt;/code&gt;来支持&lt;br /&gt; 和 Implements 类似的属性&lt;code&gt;Extends&lt;/code&gt;， 二者区别是 Extends 只支持单个父类， Implements可以是单个父类，也可以是一个数组&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;给Class.create创建好的类动态增加或者修改方法，可以使用 &lt;code&gt;implement&lt;/code&gt;方法&lt;/p&gt;
+
+&lt;h3 id='base_api'&gt;Base API简介&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt; 由Class.create创建，同时Implements了 &lt;a href='http://aralejs.org/events/' title='Events文档'&gt;Events&lt;/a&gt;，&lt;a href='http://aralejs.org/base/docs/aspect.html' title='Aspect文档'&gt;Aspect&lt;/a&gt; 和 &lt;a href='http://aralejs.org/base/docs/attribute.html' title='Attribute文档'&gt;Attribute&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id='aspect_api'&gt;Aspect API简介&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://aralejs.org/base/docs/aspect.html' title='Aspect文档'&gt;Aspect&lt;/a&gt; 提供了切面功能，对从&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt;继承的类的成员方法，都加入了切面（before/after）功能。&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id='attribute_api'&gt;Attribute API简介&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://aralejs.org/base/docs/attribute.html' title='Attribute文档'&gt;Attribute&lt;/a&gt; 提供了setter/getter功能，对从&lt;a href='http://aralejs.org/base/' title='Base文档'&gt;Base&lt;/a&gt;继承的类的成员属性，都加入了setter/getter功能。&lt;br /&gt; &lt;em&gt;onChangeX 会被转化为 change:x 事件。组件实例化的时候也会设置属性，但不会触发 change:x 事件，即不会执行&lt;/em&gt;onChangeX&lt;/p&gt;
+
+&lt;h3 id='events_api'&gt;Events API简介&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://aralejs.org/events/' title='Events文档'&gt;Events&lt;/a&gt; 提供了事件功能：on/off/trigger。&lt;br /&gt;&lt;/p&gt;
+&lt;script&gt;seajs.use('dist/app/how-to-create-a-widget-with-gazira/index');&lt;/script&gt;</description>
+                <link>http://caolvchong.github.io/javascript/2013/08/09/how-to-create-a-widget-with-gazira</link>
+                <guid>http://caolvchong.github.io/javascript/2013/08/09/how-to-create-a-widget-with-gazira</guid>
+                <pubDate>2013-08-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>Hi, Tom!</title>
+                <description>&lt;p&gt;Hi，我叫Tom，这是我的英文名，取完名字一下子觉得人洋气多了。&lt;br /&gt; 这是我的新博客。好吧，我折腾过很多博客，使用基本不超过一年，文章不超过10篇的。&lt;br /&gt; 或许，新开始，会不一样。&lt;br /&gt; 下面简要介绍下这个博客的身体构造：&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id='id1'&gt;博客系统&lt;/h3&gt;
+
+&lt;p&gt;这个blog搭在 &lt;a href='https://github.com/' title='github'&gt;github&lt;/a&gt; 之上，由 &lt;a href='https://github.com/mojombo/jekyll/' title='jekyll'&gt;jekyll&lt;/a&gt; 解析处理。&lt;br /&gt; &lt;a href='https://github.com/mojombo/jekyll/' title='jekyll'&gt;jekyll&lt;/a&gt; 需要 &lt;a href='http://www.ruby-lang.org/zh_cn/' title='ruby'&gt;ruby&lt;/a&gt; 环境。 &lt;a href='http://www.ruby-lang.org/zh_cn/' title='ruby'&gt;ruby&lt;/a&gt; 安装有个坑，最好基于rvm来安装，这篇 &lt;a href='http://www.soimort.org/posts/122/' title='介绍rvm，ruby等安装'&gt;文章&lt;/a&gt; 介绍的不错。&lt;br /&gt; 样式基于 &lt;a href='http://twitter.github.io/bootstrap/' title='bootstrap'&gt;bootstrap&lt;/a&gt;，因此有了 &lt;a href='http://jekyllbootstrap.com/' title='jekyllbootstrap'&gt;jekyllbootstrap&lt;/a&gt; 项目，此blog就是基于此修改的。&lt;/p&gt;
+
+&lt;h3 id='gazira'&gt;gazira&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/caolvchong/gazira' title='a javascript library for web develop'&gt;gazira&lt;/a&gt; 是自己的前端框架，基于 &lt;a href='http://seajs.org/' title='javascript模块化开发工具'&gt;seajs&lt;/a&gt;，&lt;a href='http://aralejs.org/' title='支付宝前端架构'&gt;arale&lt;/a&gt;，当然，底层用到了封装成 &lt;a href='https://github.com/cmdjs/specification/blob/master/draft/module.md' title='CMD规范'&gt;CMD&lt;/a&gt; 模块的&lt;a href='http://jquery.com/' title='jQuery'&gt;jquery&lt;/a&gt;。&lt;br /&gt; 此blog前期会做一系列的&lt;a href='https://github.com/caolvchong/gazira' title='a javascript library for web develop'&gt;gazira&lt;/a&gt; 技术分享，立场坚定不忘本嘛。&lt;/p&gt;
+
+&lt;h3 id='id2'&gt;代码高亮&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/mojombo/jekyll/' title='jekyll'&gt;jekyll&lt;/a&gt; 代码高亮方案多种，有后端方式的，比如用&lt;a href='http://www.ruby-lang.org/zh_cn/' title='ruby'&gt;ruby&lt;/a&gt;；也有前端的，各种各样。&lt;br /&gt; 我选了一个比较小巧的，&lt;a href='http://mihai.bazon.net/projects/javascript-syntax-highlighting-engine' title='javascript语法高亮工具'&gt;DL Highlight&lt;/a&gt;，转化为&lt;a href='https://github.com/cmdjs/specification/blob/master/draft/module.md' title='CMD规范'&gt;CMD&lt;/a&gt; 格式后使用。下面是效果：&lt;br /&gt; &lt;pre class='js' name='code'&gt;
+  function foo(bar) {
+    // displays bar if it matches &quot;baz&quot;:
+    if (/baz/.test(bar)) {
+      alert(bar);
+    }
+  };
+&lt;/pre&gt; 如果需要代码，直接fork一份 &lt;a href='http://caolvchong.github.com'&gt;代码&lt;/a&gt;，拉回去修改修改。&lt;/p&gt;
+
+&lt;h3 id='id3'&gt;评论&lt;/h3&gt;
+
+&lt;p&gt;评论最初使用的是 &lt;a href='http://disqus.com/' title='disqus评论系统'&gt;disqus&lt;/a&gt;，后来切成了 &lt;a href='http://duoshuo.com/' title='多说评论系统'&gt;多说&lt;/a&gt;，因为支持 &lt;a href='http://weibo.com/' title='新浪微博'&gt;微博&lt;/a&gt; 等登录方式。&lt;br /&gt; 拉到最底下，就是这个家伙。去 &lt;a href='http://duoshuo.com/' title='多说评论系统'&gt;多说&lt;/a&gt; 注册配置下，基本就ok了。&lt;/p&gt;
+
+&lt;h3 id='clicki'&gt;clicki统计&lt;/h3&gt;
+
+&lt;p&gt;看见右下角的玩意了吧。统计系统很多，&lt;a href='http://www.clicki.cn/' title='clicki统计系统'&gt;clicki&lt;/a&gt; 是一个师兄做的，做了很多年了，值得推荐。他的blog我找不到了，链接就不放了。&lt;br /&gt; 这些天用的时候发现&lt;a href='http://www.clicki.cn/' title='clicki统计系统'&gt;clicki&lt;/a&gt; 现在注册需要注册码了，我这里有一些，路过需要的，可以留言。&lt;/p&gt;
+
+&lt;h3 id='id4'&gt;搜索&lt;/h3&gt;
+
+&lt;p&gt;引入了google的搜索。本来想用 &lt;a href='http://tapirgo.com/' title='对RSS搜索的工具'&gt;tapir&lt;/a&gt; ，倒腾好一会发现对中文支持有问题，JSONP总是返回500错误，遂作罢。&lt;br /&gt; &lt;a href='https://github.com/mojombo/jekyll/' title='jekyll'&gt;jekyll&lt;/a&gt; 搜索还有支持简单静态搜索的，有兴趣的可以搜一搜。&lt;/p&gt;
+
+&lt;h3 id='rss'&gt;RSS&lt;/h3&gt;
+
+&lt;p&gt;自身支持 atom.xml，so，直接丢出来就好&lt;/p&gt;
+
+&lt;h3 id='id5'&gt;社交分享&lt;/h3&gt;
+
+&lt;p&gt;这个家伙在右上角，现在这种社交分享很多，我随便捡了一个 &lt;a href='http://www.jiathis.com' title='一个分享网站'&gt;jiathis&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;差不多这样，我的博客就初具规模了，剩下的就是一些汉化，自定义等功能。后面有个计划安排，就是对 &lt;a href='https://github.com/mojombo/jekyll/' title='jekyll'&gt;jekyll&lt;/a&gt; 的二次开发，届时也会做个分享。&lt;/p&gt;
+&lt;script&gt;seajs.use('dist/app/hi/index');&lt;/script&gt;</description>
+                <link>http://caolvchong.github.io/jekyll/2013/08/06/hi-tom</link>
+                <guid>http://caolvchong.github.io/jekyll/2013/08/06/hi-tom</guid>
+                <pubDate>2013-08-06T00:00:00+08:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
