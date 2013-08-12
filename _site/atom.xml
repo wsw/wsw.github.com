@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+   <title>wsw.github.com</title>
+   <link href="http://wsw.github.com/atom.xml" rel="self" type="application/atom+xml"/>
+   <link href="http://wsw.github.com" rel="alternate" type="text/html" />
+   <updated>2013-08-12T14:36:50+08:00</updated>
+   <id>http://wsw.github.com</id>
+   <author>
+     <name></name>
+     <email></email>
+   </author>
+
+   
+   <entry>
+     <title>jQuery Mobile 基础</title>
+     <link href="http://beiyuu.com/jquery-mobile-1"/>
+     <updated>2013-08-12T00:00:00+08:00</updated>
+     <id>http://beiyuu.com/jquery-mobile-1</id>
+     <content type="html">&lt;h1&gt;jQuery Mobile 的相关概念&lt;/h1&gt;
+
+&lt;p&gt;jQuery Mobile是什么？按照[官方](http://jquerymobile.com/ &quot;官网&quot;)的描述：针对智能手机和平板、做过触摸优化的web框架。&lt;/p&gt;
+
+
+
+
+&lt;p&gt;jQuery Mobile推崇什么？其实很多读者应该多用过jquery，它推崇的是&quot;write less,do more&quot;，那jQuery Mobile呢？答案是一定的，而且更加针对移动设备。&lt;/p&gt;
+
+
+
+
+&lt;p&gt;使用jQuery Mobile相关的依赖资源?
+1. 首先要依赖于jQuery框架提供的接口。
+2. 自身依赖jquery-mobile.js和jquery-mobile.css。&lt;/p&gt;
+
+
+&lt;h2&gt;jquery mobile 编写的最简单的页面结构&lt;/h2&gt;
+
+&lt;pre&gt;
+&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&quot;zh-hans&quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+&amp;lt;title&amp;gt;jQuery Mobile教程-基础篇-页面基本结构&amp;lt;/title&amp;gt;
+&amp;lt;!-- 设置meta viewport start --&amp;gt;
+&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1,maximum-scale=1&quot;&amp;gt;
+&amp;lt;!-- 设置meta viewport end --&amp;gt;
+
+&amp;lt;!-- jqm依赖文件start --&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;../css/jquery.mobile-1.1.0.css&quot; /&amp;gt;
+&amp;lt;script src=&quot;../js/jquery.js&quot; type=&quot;text/javascript&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&quot;../js/jquery.mobile-1.1.0.js&quot; type=&quot;text/javascript&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;!-- jqm依赖文件end --&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;!-- 页面容器start --&amp;gt;
+  &amp;lt;div data-role=&quot;page&quot;&amp;gt;
+    
+    &amp;lt;!-- 页眉部分start --&amp;gt;
+    &amp;lt;div data-role=&quot;header&quot;&amp;gt;
+       &amp;lt;h1&amp;gt;我是header部分&amp;lt;/h1&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;!-- 页眉部分end --&amp;gt;
+    
+    &amp;lt;!-- content部分start --&amp;gt;
+    &amp;lt;div data-role=&quot;content&quot;&amp;gt;
+        &amp;lt;p&amp;gt;jQuery Mobile教程-基础篇-我是content部分&amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;!-- content部分end --&amp;gt;
+    
+    &amp;lt;!-- 页脚部分start --&amp;gt;
+    &amp;lt;div data-role=&quot;footer&quot;&amp;gt;
+        &amp;lt;h3&amp;gt;我是footer部分&amp;lt;/h3&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;!-- 页脚部分end --&amp;gt;
+    
+  &amp;lt;/div&amp;gt; 
+  &amp;lt;!-- 页面容器end --&amp;gt;
+  
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/pre&gt;
+
+</content>
+   </entry>
+   
+   <entry>
+     <title>Chrome and Chrome Mobile 远程调试</title>
+     <link href="http://beiyuu.com/chrome-debug"/>
+     <updated>2013-08-12T00:00:00+08:00</updated>
+     <id>http://beiyuu.com/chrome-debug</id>
+     <content type="html">&lt;h1&gt;Chrome and Chrome Mobile 远程调试&lt;/h1&gt;
+
+&lt;h2&gt;准备工作：&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Android SDK 下载安装&lt;/li&gt;
+&lt;li&gt;Chrome 下载安装&lt;/li&gt;
+&lt;li&gt;有一部 Android 手机或安装 Android 虚拟机&lt;/li&gt;
+&lt;li&gt;移动版 Chrome：Google Play 搜索 Chrome&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;步骤&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Android 设备通过 USB 连接电脑，要访问 Android 设备还需要 Android Debug Bridge(adb)，先前安装的 Android SDK 中包含此款命令行工具。在 Windows 中点击 “开始” ― “运行” ― “cmd” 找到 Android SDK 里的 platform-tools 目录。&lt;/li&gt;
+&lt;li&gt;在移动设备上打开 Chrome，“设置” ― “开发人员工具” ― “启用 USB 网页调试”。&lt;/li&gt;
+&lt;li&gt;在 Windows 下输入 adb devices 看下面的列表中有没有你的机器，如果没有检查一下 Android 设备的 USB 调试是否打开。&lt;/li&gt;
+&lt;li&gt;在 platform-tools 目录下输入：adb forward tcp:9222 localabstract:chrome_devtools_remote&lt;/li&gt;
+&lt;li&gt;在桌面版 Chrome 输入 localhost:9222，页面出现移动版 Chrome 访问的页面。&lt;/li&gt;
+&lt;li&gt;点击 “inspectable pages” 下面的任一页面进入调试页面，移动设备页面可以在桌面调试了。&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;参考地址：&lt;a href=&quot;http://dev.oupeng.com/articles/remote-debugging-with-browsers&quot;&gt;http://dev.oupeng.com/articles/remote-debugging-with-browsers&lt;/a&gt;。&lt;/p&gt;
+</content>
+   </entry>
+   
+ 
+</feed>
