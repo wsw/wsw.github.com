@@ -63,3 +63,5 @@ category: blog
 <a href="http://api.jquerymobile.com/category/widgets/">英文官网</a>
 <a href="http://www.jqmapi.com/">中文网站</a>，
 所有组件的属性信息见<a href="http://api.jquerymobile.com/data-attribute/">英文官网
+
+[1]:    {{ page.url}}  ({{ page.title }})
