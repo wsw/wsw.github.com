@@ -32,9 +32,10 @@
 <div class="entry">
     <h1 class="entry-title"><a href="/jquery-mobile-1" title="jQuery Mobile 基础">jQuery Mobile 基础</a></h1>
     <p class="entry-date">2013-08-12</p>
-    <h1>jQuery Mobile 的相关概念</h1>
+    <h2> jQuery Mobile 的相关概念 </h2>
 
-<p>jQuery Mobile是什么？按照[官方](http://jquerymobile.com/ "官网")的描述：针对智能手机和平板、做过触摸优化的web框架。</p>
+
+<p>jQuery Mobile是什么？按照<a href="http://jquerymoblie.com/">官方</a>的描述：针对智能手机和平板、做过触摸优化的web框架。</p>
 
 
 
@@ -49,53 +50,52 @@
 2. 自身依赖jquery-mobile.js和jquery-mobile.css。</p>
 
 
-<h2>jquery mobile 编写的最简单的页面结构</h2>
+<h3>jquery mobile 编写的最简单的页面结构</h3>
 
 <pre>
+<code>
 &lt;!doctype html&gt;
 &lt;html lang="zh-hans"&gt;
 &lt;head&gt;
 &lt;meta charset="UTF-8"&gt;
-&lt;title&gt;jQuery Mobile教程-基础篇-页面基本结构&lt;/title&gt;
+&lt;title&gt;jQuery Mobile基础-页面基本结构&lt;/title&gt;
 &lt;!-- 设置meta viewport start --&gt;
 &lt;meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"&gt;
 &lt;!-- 设置meta viewport end --&gt;
 
 &lt;!-- jqm依赖文件start --&gt;
-&lt;link rel="stylesheet" href="../css/jquery.mobile-1.1.0.css" /&gt;
-&lt;script src="../js/jquery.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="../js/jquery.mobile-1.1.0.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="jquery.mobile-1.3.1.css" /&gt;
+&lt;script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery.mobile-1.3.1.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;!-- jqm依赖文件end --&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;!-- 页面容器start --&gt;
   &lt;div data-role="page"&gt;
-    
     &lt;!-- 页眉部分start --&gt;
     &lt;div data-role="header"&gt;
        &lt;h1&gt;我是header部分&lt;/h1&gt;
     &lt;/div&gt;
     &lt;!-- 页眉部分end --&gt;
-    
     &lt;!-- content部分start --&gt;
     &lt;div data-role="content"&gt;
         &lt;p&gt;jQuery Mobile教程-基础篇-我是content部分&lt;/p&gt;
     &lt;/div&gt;
     &lt;!-- content部分end --&gt;
-    
     &lt;!-- 页脚部分start --&gt;
     &lt;div data-role="footer"&gt;
         &lt;h3&gt;我是footer部分&lt;/h3&gt;
     &lt;/div&gt;
     &lt;!-- 页脚部分end --&gt;
-    
   &lt;/div&gt; 
-  &lt;!-- 页面容器end --&gt;
-  
+  &lt;!-- 页面容器end --&gt; 
 &lt;/body&gt;
 &lt;/html&gt;
+</code>
 </pre>
 
+
+<h1>#</h1>
 
 </div>
 
