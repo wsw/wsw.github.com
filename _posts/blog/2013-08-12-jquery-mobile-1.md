@@ -28,9 +28,9 @@ category: blog
 &lt;!-- 设置meta viewport end --&gt;
 
 &lt;!-- jqm依赖文件start --&gt;
-&lt;link rel="stylesheet" href="jquery.mobile-1.3.1.css" /&gt;
+&lt;link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" /&gt;
 &lt;script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="jquery.mobile-1.3.1.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;!-- jqm依赖文件end --&gt;
 &lt;/head&gt;
 &lt;body&gt;
