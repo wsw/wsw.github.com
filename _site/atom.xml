@@ -4,7 +4,7 @@
    <title>wsw.github.com</title>
    <link href="http://wsw.github.com/atom.xml" rel="self" type="application/atom+xml"/>
    <link href="http://wsw.github.com" rel="alternate" type="text/html" />
-   <updated>2013-08-22T19:29:19+08:00</updated>
+   <updated>2013-08-23T11:52:07+08:00</updated>
    <id>http://wsw.github.com</id>
    <author>
      <name></name>
@@ -41,8 +41,7 @@ background-color: #ccc;
 &lt;h3&gt;2.工具栏主题化&lt;/h3&gt;
 
 &lt;p&gt;在jQuery Mobile框架中，工具栏是指页头和页脚元素,若要把工具栏定义成页头或页脚，使用data-role属性。data-role属性的值应该为 header或者footer.&lt;br /&gt;
-&lt;code&gt;&amp;lt; div data-role=&quot;header&quot;&gt;
-&lt;br /&gt;
+&lt;code&gt;&amp;lt; div data-role=&quot;header&quot;&gt;&lt;br/&gt;
 &amp;lt; div data-role=&quot;footer&quot;&gt;
 &lt;/code&gt;&lt;Br/&gt;
 缺省情况下，会为其指派ui-header或ui-footer和ui-bar-a类。为页头工具栏header添加自定义调色板f:&lt;br /&gt;
@@ -59,20 +58,9 @@ padding: 10px 0;
 color: #fff;&lt;br /&gt;
 border-bottom: 2px solid #000;
 background-color: #000;
-background: -moz-linear-gradient(top, rgba(204,204,204,1) 0%, rgba(0,0,0,0.65) 100%);
-/&lt;em&gt; FF3.6+ &lt;/em&gt;/ &lt;br /&gt;
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,
-rgba(204,204,204,1)), color-stop(100%,rgba(0,0,0,0.65))); /&lt;em&gt; Chrome,Safari4+ &lt;/em&gt;/&lt;br /&gt;
 background: -webkit-linear-gradient(top, rgba(204,204,204,1) 0%,
-rgba(0,0,0,0.65) 100%); /&lt;em&gt; Chrome10+,Safari5.1+ &lt;/em&gt;/&lt;br /&gt;
-background: -o-linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%);
-/&lt;em&gt; Opera11.10+ &lt;/em&gt;/&lt;br /&gt;
-background: -ms-linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%);
-/&lt;em&gt; IE10+ &lt;/em&gt;/&lt;br /&gt;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#cccccc&#39;,
-endColorstr=&#39;#a6000000&#39;,GradientType=0 ); /&lt;em&gt; IE6-9 &lt;/em&gt;/&lt;br /&gt;
-background: linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%);
-/&lt;em&gt; W3C &lt;/em&gt;/&lt;br /&gt;
+rgba(0,0,0,0.65) 100%); &lt;br /&gt;
+background: linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); &lt;br /&gt;
 }&lt;/code&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3&gt;3.内容主题化&lt;/h3&gt;
@@ -103,6 +91,23 @@ text-decoration: none;
 .ui-listview .ui-btn-hover-f a {&lt;br /&gt;
 color: #fff;
 }&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;5.表单和按钮的主题化&lt;/h3&gt;
+
+&lt;p&gt;使用jQuery Mobile框架为移动网站创建表单的做法就和为其他任何网站创建表单的做法一样：只需添加输入（input）元素和相关的标签（label），其采用现有的页面主题。&lt;br&gt;
+&lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;&amp;lt; div data-role=&quot;collapsible&quot; data-collapsed=&quot;true&quot; data-theme=&quot;f&quot;&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;  &amp;lt; h3&amp;gt;&amp;gt;Login&amp;lt; /h3&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;  &amp;lt; form action=&quot;&quot; method=&quot;post&quot;&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; label for=&quot;username&quot;&amp;gt;Username&amp;lt; /label&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; /&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; label for=&quot;username&quot;&amp;gt;Password&amp;lt; /label&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; /&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; fieldset class=&quot;ui-grid-a&quot;&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;      &amp;lt; div class=&quot;ui-block-a&quot;&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;        &amp;lt; button type=&quot;reset&quot; data-inline=&quot;true&quot;&amp;gt;Reset&amp;lt; /button&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;      &amp;lt; /div&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;      &amp;lt; div class=&quot;ui-block-b&quot;&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;        &amp;lt; button type=&quot;submit&quot; data-inline=&quot;true&quot; data-theme=&quot;h&quot;&amp;gt;Submit&amp;lt; /button&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;      &amp;lt; /div&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;    &amp;lt; /fieldset&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;  &amp;lt; /form&amp;gt;&lt;/span&gt;&lt;br /&gt;  &lt;span style=&quot;color:#0021b0;background-color:#e2f0fe;&quot;&gt;&amp;lt; /div&amp;gt;&lt;/span&gt;&lt;br /&gt;
+表单按钮的自定义CSS类&lt;br/&gt;
+&lt;code&gt;.ui-btn-up-h {&lt;br/&gt;
+background: -webkit-linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); &lt;br/&gt;
+text-shadow: #225377 0px -1px 1px;&lt;br/&gt;
+background: linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); &lt;br/&gt;
+color: #fff;
+}&lt;br/&gt;
+.ui-btn-down-h, &lt;br/&gt;
+.ui-btn-hover-h {   &lt;br/&gt;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(114,176,212,1)), color-stop(100%,rgba(75,136,182,0.65)));  &lt;br/&gt;background: linear-gradient(top, rgba(114,176,212,1) 0%,rgba(75,136,182,0.65) 100%); &lt;br/&gt;
+border: 1px solid #00516E;  &lt;br/&gt;   text-shadow: #014D68 0px -1px 1px;  &lt;br/&gt;   color: #fff;
+}&lt;br/&gt;
+&lt;/code&gt;&lt;br/&gt;&lt;/p&gt;
 </content>
    </entry>
    

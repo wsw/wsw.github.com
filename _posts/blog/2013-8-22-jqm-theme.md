@@ -23,8 +23,7 @@ background-color: #ccc;
 } </code>
 ###2.工具栏主题化
 在jQuery Mobile框架中，工具栏是指页头和页脚元素,若要把工具栏定义成页头或页脚，使用data-role属性。data-role属性的值应该为 header或者footer.<br />
-<code>< div data-role="header">
-<br />
+<code>< div data-role="header"><br/>
 < div data-role="footer">
 </code><Br/>
 缺省情况下，会为其指派ui-header或ui-footer和ui-bar-a类。为页头工具栏header添加自定义调色板f:<br />
@@ -41,20 +40,9 @@ padding: 10px 0;
 color: #fff;<br />
 border-bottom: 2px solid #000;
 background-color: #000;
-background: -moz-linear-gradient(top, rgba(204,204,204,1) 0%, rgba(0,0,0,0.65) 100%);
-/* FF3.6+ */ <br />
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,
-rgba(204,204,204,1)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */<br />
 background: -webkit-linear-gradient(top, rgba(204,204,204,1) 0%,
-rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */<br />
-background: -o-linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); 
-/* Opera11.10+ */<br />
-background: -ms-linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); 
-/* IE10+ */<br />
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', 
-endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */<br />
-background: linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); 
-/* W3C */<br />
+rgba(0,0,0,0.65) 100%); <br />
+background: linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); <br />
 }</code><br />
 ###3.内容主题化
 content元素可使用你所选的自定义调板来主题化。若要为你的移动网站中的内容创建自定义调板，你必须先创建一个content元素。比如在content中加入<br />
@@ -81,3 +69,18 @@ text-decoration: none;
 .ui-listview .ui-btn-hover-f a {<br />
 color: #fff;
 }</code>
+###5.表单和按钮的主题化
+使用jQuery Mobile框架为移动网站创建表单的做法就和为其他任何网站创建表单的做法一样：只需添加输入（input）元素和相关的标签（label），其采用现有的页面主题。<br>
+<span style="color:#0021b0;background-color:#e2f0fe;">&lt; div data-role="collapsible" data-collapsed="true" data-theme="f"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; h3&gt;&gt;Login&lt; /h3&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; form action="" method="post"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; label for="username"&gt;Username&lt; /label&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; input type="text" name="username" id="username" /&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; label for="username"&gt;Password&lt; /label&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; input type="password" name="password" id="password" /&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; fieldset class="ui-grid-a"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; div class="ui-block-a"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">        &lt; button type="reset" data-inline="true"&gt;Reset&lt; /button&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; /div&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; div class="ui-block-b"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">        &lt; button type="submit" data-inline="true" data-theme="h"&gt;Submit&lt; /button&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; /div&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; /fieldset&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; /form&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">&lt; /div&gt;</span><br />
+表单按钮的自定义CSS类<br/>
+<code>.ui-btn-up-h {<br/>
+background: -webkit-linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); <br/>
+text-shadow: #225377 0px -1px 1px;<br/>
+background: linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); <br/>
+color: #fff;
+}<br/>
+.ui-btn-down-h, <br/>
+.ui-btn-hover-h {	<br/>background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,	rgba(114,176,212,1)), color-stop(100%,rgba(75,136,182,0.65))); 	<br/>background: linear-gradient(top, rgba(114,176,212,1) 0%,rgba(75,136,182,0.65) 100%); <br/>
+border: 1px solid #00516E;	<br/>	text-shadow: #014D68 0px -1px 1px;	<br/>	color: #fff;
+}<br/>
+</code><br/>
