@@ -4,7 +4,7 @@
    <title>wsw.github.com</title>
    <link href="http://wsw.github.com/atom.xml" rel="self" type="application/atom+xml"/>
    <link href="http://wsw.github.com" rel="alternate" type="text/html" />
-   <updated>2013-08-27T22:37:28+08:00</updated>
+   <updated>2013-08-27T22:59:12+08:00</updated>
    <id>http://wsw.github.com</id>
    <author>
      <name></name>
@@ -13,32 +13,282 @@
 
    
    <entry>
-     <title>Fruit</title>
-     <link href="http://beiyuu.com/fruit"/>
+     <title>Game</title>
+     <link href="http://beiyuu.com/game"/>
      <updated>2013-08-28T00:00:00+08:00</updated>
-     <id>http://beiyuu.com/fruit</id>
-     <content type="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+     <id>http://beiyuu.com/game</id>
+     <content type="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;author&quot; content=&quot;dron&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0&quot; /&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
-    &lt;title&gt;水果忍者网页版--程序园&lt;/title&gt;
-    &lt;!--[if lt IE 9]&gt;&lt;script&gt;document.createElement(&quot;canvas&quot;);&lt;/script&gt;&lt;![endif]--&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;images/index.css&quot; /&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;style&gt;
+*{ margin:0; padding:0;}
+#div1{ position:relative; margin:20px auto;}
+
+.pos1{ width:50px; height:50px; background:#666; float:left;}
+.pos2{ width:50px; height:50px; background:url(../../images/images/wall.png) no-repeat; float:left;}
+.pos3{ width:50px; height:50px; background:red; float:left;}
+.pos0{ width:50px; height:50px; background:blue; float:left;}
+
+.box{ width:50px; height:50px; background:url(../../images/images/box.png) no-repeat; position:absolute;}
+.person{ width:50px; height:50px; background:url(../../images/images/person.png) no-repeat; position:absolute;}
+
+
+&lt;/style&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../../js/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+$(function(){
+	
+	Game.init( $(&#39;#div1&#39;) );
+	
+});
+
+var Game = {
+	
+	gk : [   //关卡的数据
+		{
+			map : [
+				1,1,2,2,2,2,1,1,
+				1,1,2,3,3,2,1,1,
+				1,2,2,0,3,2,2,1,
+				1,2,0,0,0,3,2,1,
+				2,2,0,0,0,0,2,2,
+				2,0,0,2,0,0,0,2,
+				2,0,0,0,0,0,0,2,
+				2,2,2,2,2,2,2,2
+			],
+			box : [
+				{x:4,y:3},
+				{x:3,y:4},
+				{x:4,y:5},
+				{x:5,y:5}
+			],
+			person : {x:3,y:6}
+		},
+		{
+			map : [
+				1,1,1,1,2,2,2,2,2,2,2,1,
+				1,1,1,1,2,0,0,2,0,0,2,1,
+				1,1,1,1,2,0,0,0,0,0,2,1,
+				2,2,2,2,2,0,0,2,0,0,2,1,
+				3,3,3,2,2,2,0,2,0,0,2,2,
+				3,0,0,2,0,0,0,0,2,0,0,2,
+				3,0,0,0,0,0,0,0,0,0,0,2,
+				3,0,0,2,0,0,0,0,2,0,0,2,
+				3,3,3,2,2,2,0,2,0,0,2,2,
+				2,2,2,2,2,0,0,0,0,0,2,1,
+				1,1,1,1,2,0,0,2,0,0,2,1,
+				1,1,1,1,2,2,2,2,2,2,2,1
+			],
+			box : [
+				{x : 5 , y : 6},
+				{x : 6 , y : 3},
+				{x : 6 , y : 5},
+				{x : 6 , y : 7},
+				{x : 6 , y : 9},
+				{x : 7 , y : 2},
+				{x : 8 , y : 2},
+				{x : 9 , y : 6},
+			],
+			person : { x : 5 , y : 9 }
+		}
+	],
+	
+	init : function(oParent){  //初始化
+	
+		this.oParent = oParent;
+		
+		this.createMap(0);
+	
+	},
+	createMap : function(iNow){  //创建地图
+	
+		this.oParent.empty();
+		
+		document.title = &#39;第&#39;+(iNow+1)+&#39;关&#39;;
+	
+		this.nowJson = this.gk[iNow];
+		
+		this.oParent.css(&#39;width&#39;,Math.sqrt(this.nowJson.map.length)*50);
+		
+		$.each( this.nowJson.map, $.proxy(function(i,elem){
+			
+			this.oParent.append(&#39;&lt;div class=&quot;pos&#39;+ elem +&#39;&quot;&gt;&lt;/div&gt;&#39;);
+			
+		},this) );
+		
+		this.createBox();
+		
+		this.createPerson();
+	
+	},
+	createBox : function(){  //创建箱子
+		
+		$.each(this.nowJson.box,$.proxy(function(i,elem){
+			
+			var oBox = $(&#39;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;&#39;);
+			oBox.css(&#39;left&#39;,elem.x*50);
+			oBox.css(&#39;top&#39;,elem.y*50);
+			this.oParent.append(oBox);
+			
+		},this));
+		
+	},
+	createPerson : function(){  //创建人物
+		
+		var oPerson = $(&#39;&lt;div class=&quot;person&quot;&gt;&lt;/div&gt;&#39;);
+		oPerson.css(&#39;left&#39;,this.nowJson.person.x*50);
+		oPerson.css(&#39;top&#39;,this.nowJson.person.y*50);
+		
+		oPerson.data(&#39;x&#39;,this.nowJson.person.x);
+		oPerson.data(&#39;y&#39;,this.nowJson.person.y);
+		
+		this.oParent.append( oPerson );
+		
+		this.bindPerson(oPerson);
+		
+	},
+	bindPerson : function(oPerson){  //操作人物
+	
+		$(document).keydown($.proxy(function(ev){
+			
+			switch(ev.which){
+				case 37:
+					oPerson.css(&#39;backgroundPosition&#39;,&#39;-150px 0&#39;);
+					this.movePerson(oPerson,{x:-1});
+					
+					
+				break;
+				case 38:
+					oPerson.css(&#39;backgroundPosition&#39;,&#39;0 0&#39;);
+					
+					this.movePerson(oPerson,{y:-1});
+					
+				break;
+				case 39:
+					oPerson.css(&#39;backgroundPosition&#39;,&#39;-50px 0&#39;);
+					
+					this.movePerson(oPerson,{x:1});
+					
+				break;
+				case 40:
+					oPerson.css(&#39;backgroundPosition&#39;,&#39;-100px 0&#39;);
+					this.movePerson(oPerson,{y:1});
+				break;
+			}
+			
+		},this));
+	
+	},
+	movePerson : function(oPerson,opt){
+		
+		var xValue = opt.x || 0;
+		var yValue = opt.y || 0;
+		
+		
+		if( this.nowJson.map[ (oPerson.data(&#39;y&#39;) + yValue )*Math.sqrt(this.nowJson.map.length) + (oPerson.data(&#39;x&#39;) + xValue ) ] != 2 ){
+			
+			oPerson.data(&#39;x&#39;,oPerson.data(&#39;x&#39;) + xValue );
+			oPerson.data(&#39;y&#39;,oPerson.data(&#39;y&#39;) + yValue );
+			
+			oPerson.css(&#39;left&#39; , oPerson.data(&#39;x&#39;)*50 );
+			oPerson.css(&#39;top&#39; , oPerson.data(&#39;y&#39;)*50 );
+			
+			$(&#39;.box&#39;).each($.proxy(function(i,elem){
+				
+				if( this.pz( oPerson , $(elem) ) &amp;&amp; this.nowJson.map[ (oPerson.data(&#39;y&#39;) + yValue )*Math.sqrt(this.nowJson.map.length) + (oPerson.data(&#39;x&#39;) + xValue ) ] != 2 ){
+					
+					$(elem).css(&#39;left&#39; , (oPerson.data(&#39;x&#39;) + xValue)*50 );
+					$(elem).css(&#39;top&#39; , (oPerson.data(&#39;y&#39;) + yValue)*50 );
+					
+					$(&#39;.box&#39;).each($.proxy(function(j,elem2){
+						
+						if( this.pz( $(elem) , $(elem2) ) &amp;&amp; elem!=elem2 ){
+						
+						$(elem).css(&#39;left&#39; , oPerson.data(&#39;x&#39;)*50 );
+						$(elem).css(&#39;top&#39; , oPerson.data(&#39;y&#39;)*50 );
+						
+						oPerson.data(&#39;x&#39;,oPerson.data(&#39;x&#39;) - xValue );
+						oPerson.data(&#39;y&#39;,oPerson.data(&#39;y&#39;) - yValue );
+						
+						oPerson.css(&#39;left&#39; , oPerson.data(&#39;x&#39;)*50 );
+						oPerson.css(&#39;top&#39; , oPerson.data(&#39;y&#39;)*50 );	
+							
+						}
+						
+					},this));
+					
+					
+				}
+				else if( this.pz( oPerson , $(elem) ) ){
+					
+					oPerson.data(&#39;x&#39;,oPerson.data(&#39;x&#39;) - xValue );
+					oPerson.data(&#39;y&#39;,oPerson.data(&#39;y&#39;) - yValue );
+					
+					oPerson.css(&#39;left&#39; , oPerson.data(&#39;x&#39;)*50 );
+					oPerson.css(&#39;top&#39; , oPerson.data(&#39;y&#39;)*50 );
+					
+				}
+				
+			},this));
+			
+		}
+		
+		this.nextShow();
+		
+	},
+	nextShow : function(){  //下一关
+		
+		var iNum = 0;
+		
+		$(&#39;.box&#39;).each($.proxy(function(i,elem){
+			
+			$(&#39;.pos3&#39;).each($.proxy(function(j,elem2){
+				
+				if( this.pz( $(elem) , $(elem2) ) ){
+					iNum++;
+				}
+				
+			},this));
+			
+		},this));
+		
+		if(iNum == this.nowJson.box.length){
+			this.createMap(1);
+		}
+		
+	},
+	pz : function(obj1,obj2){  //碰撞检测
+		var L1 = obj1.offset().left;
+		var R1 = obj1.offset().left + obj1.width();
+		var T1 = obj1.offset().top;
+		var B1 = obj1.offset().top + obj1.height();
+		
+		var L2 = obj2.offset().left;
+		var R2 = obj2.offset().left + obj2.width();
+		var T2 = obj2.offset().top;
+		var B2 = obj2.offset().top + obj2.height();
+		
+		if( R1&lt;=L2 || L1&gt;=R2 || T1&gt;=B2 || B1&lt;=T2 ){
+			return false;
+		}
+		else{
+			return true;
+		}
+		
+	}
+};
+
+&lt;/script&gt;
 &lt;/head&gt;
+
 &lt;body&gt;
-    &lt;div id=&quot;extra&quot;&gt;&lt;/div&gt;
-    &lt;canvas id=&quot;view&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;&lt;/canvas&gt;
-    &lt;div id=&quot;desc&quot;&gt;
-        &lt;div id=&quot;browser&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;center&gt;&lt;a style=&quot;color:White;&quot; href=&quot;http://www.jq-school.com&quot;&gt;水果忍者网页版&lt;/a&gt;&lt;/center&gt;
-    &lt;script src=&quot;scripts/all.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</content>
+&lt;/html&gt;
+</content>
    </entry>
    
    <entry>
