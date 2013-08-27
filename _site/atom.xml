@@ -4,13 +4,42 @@
    <title>wsw.github.com</title>
    <link href="http://wsw.github.com/atom.xml" rel="self" type="application/atom+xml"/>
    <link href="http://wsw.github.com" rel="alternate" type="text/html" />
-   <updated>2013-08-23T11:52:07+08:00</updated>
+   <updated>2013-08-27T22:37:28+08:00</updated>
    <id>http://wsw.github.com</id>
    <author>
      <name></name>
      <email></email>
    </author>
 
+   
+   <entry>
+     <title>Fruit</title>
+     <link href="http://beiyuu.com/fruit"/>
+     <updated>2013-08-28T00:00:00+08:00</updated>
+     <id>http://beiyuu.com/fruit</id>
+     <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;dron&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0&quot; /&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
+    &lt;title&gt;水果忍者网页版--程序园&lt;/title&gt;
+    &lt;!--[if lt IE 9]&gt;&lt;script&gt;document.createElement(&quot;canvas&quot;);&lt;/script&gt;&lt;![endif]--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;images/index.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;extra&quot;&gt;&lt;/div&gt;
+    &lt;canvas id=&quot;view&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;&lt;/canvas&gt;
+    &lt;div id=&quot;desc&quot;&gt;
+        &lt;div id=&quot;browser&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;center&gt;&lt;a style=&quot;color:White;&quot; href=&quot;http://www.jq-school.com&quot;&gt;水果忍者网页版&lt;/a&gt;&lt;/center&gt;
+    &lt;script src=&quot;scripts/all.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</content>
+   </entry>
    
    <entry>
      <title>jqm主题化</title>
