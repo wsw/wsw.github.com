@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<script type="text/javascript" src="../js/application.js"></script>
+<div class="container bs-docs-container" style="">
+<div class="row">
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix">
+        <ul class="nav bs-sidenav">
+            <li class="active">
+                <a href="#header"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9" role="main">
+
+	<div class="bs-docs-section">
+	    <div class="page-header">
+	         <h1 id="header" class="text-center">{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small> {% endif %}</h1>
+	    </div>
+	    {{ content }}
+	</div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(".bs-docs-section h3").each(function(index, value) {
+            $(this).attr("id", "header"+index);
+            var li = "<li><a href="+"'#header"+index+"'>"+$(this).text()+"</a><li>";
+            $(".bs-sidebar .nav").append(li);
+            $(this).find("h4").each(function(i, v) {
+            })
+        })
+    })
+</script>

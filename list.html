@@ -1,0 +1,31 @@
+---
+layout: default
+title: 列表页
+---
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="../css/list2.jpg" class="img-responsive" style="height: 200px; width: 100%; margin-bottom: 5px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">所有文章</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+					{% for post in site.posts %}
+                        <a href="{{ BASE_PATH }}{{ post.url }}" class="list-group-item col-lg-4" style="height: 200px; overflow: hidden;">
+                            <span class="badge">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                            <h4 class="list-group-item-heading">{{ post.title }}</h4>
+                            <p class="list-group-item-text">{{ post.description }}</p>
+                        </a>
+					{% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jqm主题化</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/docs.css">
+    <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    
+    <meta name="description" content="如何为每种jQuery Mobile元素类型创建定制主题，定制主题允许你创建的网站的移动版本，其与网站的桌面版本遵循同样的品牌概念。"/>
+    
+    <meta name="author" content=""/>
+</head>
+<body style="background: url('../img/sandpaper.png')">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">WSW</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav" id="navbar">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/list.html">博客</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">opinion</a></li>
+                        <li><a href="#">project</a></li>
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="dropdown-header">Dropdown header</li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <input type="text" class="form-control col-lg-8" placeholder="搜嘎～">
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://weibo.com/wsw910127" target="_blank">Contact</a></li>
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</div>
+
+<script type="text/javascript" src="../js/application.js"></script>
+<div class="container bs-docs-container" style="">
+<div class="row">
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix">
+        <ul class="nav bs-sidenav">
+            <li class="active">
+                <a href="#header"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9" role="main">
+
+	<div class="bs-docs-section">
+	    <div class="page-header">
+	         <h1 id="header" class="text-center">jqm主题化 </h1>
+	    </div>
+	    <p>jQuery Mobile框架包含了一个页面主题系统，其提供了对页面元素的外观和样式的完全控制。可把HTML5的data-theme属性添加到元素中，以此来应 用现有的jQuery Mobile主题调板（theme swatch)或是新的调板。主题系统包含了五个调板，使用字母来标识每个调板——比如说，A-E代表jQuery Mobile框架自身提供的调板。你可通过下载jQuery Mobile框架提供的CSS文件来查看现有的调板。若要创建新的调板，可使用任何还未被用的字母表中的字母（即F-Z）。一旦确定了自己想用的字母，你 就可以参考任何现有的调板来为所有的各种页面元素复制定制的类。</p>
+
+
+<h3>1.页面主题化</h3>
+
+<p>页面主题由包含了整个网页的样式化了的HTML元素构成.下面的代码展示了一个page元素的例子，该元素使用了值为F的 data-theme：<br/></p>
+
+<pre><code>< div data-role="page" data-theme="f"></code></pre>
+
+
+<p> <br />
+jQuery Mobile框架实际上创建并添加了几个CSS类到page元素中,经过框架处理之后，浏览器中的输出会变成什么样子：<br/></p>
+
+<pre><code>< div data-role="page" data-theme="f" 
+class="ui-page ui-body-f ui-page-active" style="min-height: 580px;"></code></pre>
+
+
+<p><br/>
+根据data-role的值page，指派了ui-page和ui-page-active类，根据data-theme的值f,指派了ui-body-f类。你可以使用任何的这些类来样式化page元素或是它的内容。现在为ui-body-f添加css样式：<br /></p>
+
+<pre><code>.ui-body-f {<br />
+background-color: #cfe8cc;<br />
+font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+} </code></pre>
+
+
+<p><br />
+同样可以样式化所有出现在page元素内容的input text和password域:<br /></p>
+
+<pre><code>.ui-body-f input[type="text"], <br />
+.ui-body-f input[type="password"] {<br />
+background-color: #ccc;
+} </code></pre>
+
+
+<h3>2.工具栏主题化</h3>
+
+<p>在jQuery Mobile框架中，工具栏是指页头和页脚元素,若要把工具栏定义成页头或页脚，使用data-role属性。data-role属性的值应该为 header或者footer.<br /></p>
+
+<pre><code>< div data-role="header"><br/>
+< div data-role="footer">
+</code></pre>
+
+
+<p><Br/>
+缺省情况下，会为其指派ui-header或ui-footer和ui-bar-a类。为页头工具栏header添加自定义调色板f:<br /></p>
+
+<pre><code>.ui-bar-f {
+padding: 10px 0px;
+background-color: #069;
+border-bottom: 2px solid #036;
+color: #fff;
+}</code></pre>
+
+
+<p><br />
+为页脚工具栏footer添加自定义调色板g<br /></p>
+
+<pre><code>.ui-bar-g {
+margin-top: 20px;
+padding: 10px 0;
+color: #fff;<br />
+border-bottom: 2px solid #000;
+background-color: #000;
+background: -webkit-linear-gradient(top, rgba(204,204,204,1) 0%,
+rgba(0,0,0,0.65) 100%); <br />
+background: linear-gradient(top, rgba(204,204,204,1) 0%,rgba(0,0,0,0.65) 100%); <br />
+}</code></pre>
+
+
+<p><br /></p>
+
+<h3>3.内容主题化</h3>
+
+<p>content元素可使用你所选的自定义调板来主题化。若要为你的移动网站中的内容创建自定义调板，你必须先创建一个content元素。比如在content中加入<br /></p>
+
+<pre><code>< div data-role="collapsible" data-collapsed="true"></code></pre>
+
+
+<p> <Br/>
+为可折叠块的标题栏相关的自定义CSS类<br /></p>
+
+<pre><code>ui-body-f .ui-collapsible-contain 
+.ui-collapsible-heading .ui-btn-up-f {<br />
+background: #666;
+color: #fff;
+text-decoration: none;
+}
+.ui-body-f .ui-collapsible-contain <br />
+.ui-collapsible-heading .ui-btn-down-f, <br />
+.ui-body-f .ui-collapsible-contain 
+.ui-collapsible-heading .ui-btn-hover-f { <br />
+background: #999;
+color: #fff;
+text-decoration: none;
+}</code></pre>
+
+
+<h3>4.列表主题化</h3>
+
+<p>把一个普通的HTML列表转换成一个在触摸设备上容易使用的漂亮的移动列表，所需要做的就是把data-role属性的值设为listview。自定义列表项<br /></p>
+
+<pre><code>.ui-listview .ui-btn-up-f a, <br />
+.ui-listview .ui-btn-down-f a, <br />
+.ui-listview .ui-btn-hover-f a {<br />
+color: #fff;
+}</code></pre>
+
+
+<h3>5.表单和按钮的主题化</h3>
+
+<p>使用jQuery Mobile框架为移动网站创建表单的做法就和为其他任何网站创建表单的做法一样：只需添加输入（input）元素和相关的标签（label），其采用现有的页面主题。<br>
+<span style="color:#0021b0;background-color:#e2f0fe;">&lt; div data-role="collapsible" data-collapsed="true" data-theme="f"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; h3&gt;&gt;Login&lt; /h3&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; form action="" method="post"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; label for="username"&gt;Username&lt; /label&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; input type="text" name="username" id="username" /&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; label for="username"&gt;Password&lt; /label&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; input type="password" name="password" id="password" /&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; fieldset class="ui-grid-a"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; div class="ui-block-a"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">        &lt; button type="reset" data-inline="true"&gt;Reset&lt; /button&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; /div&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; div class="ui-block-b"&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">        &lt; button type="submit" data-inline="true" data-theme="h"&gt;Submit&lt; /button&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">      &lt; /div&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">    &lt; /fieldset&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">  &lt; /form&gt;</span><br />  <span style="color:#0021b0;background-color:#e2f0fe;">&lt; /div&gt;</span><br />
+表单按钮的自定义CSS类<br/></p>
+
+<pre><code>.ui-btn-up-h {<br/>
+background: -webkit-linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); <br/>
+text-shadow: #225377 0px -1px 1px;<br/>
+background: linear-gradient(top, rgba(57,107,158,1) 0%,rgba(78,137,197,0.65) 100%); <br/>
+color: #fff;
+}<br/>
+.ui-btn-down-h, <br/>
+.ui-btn-hover-h {   <br/>background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(114,176,212,1)), color-stop(100%,rgba(75,136,182,0.65)));  <br/>background: linear-gradient(top, rgba(114,176,212,1) 0%,rgba(75,136,182,0.65) 100%); <br/>
+border: 1px solid #00516E;  <br/>   text-shadow: #014D68 0px -1px 1px;  <br/>   color: #fff;
+}<br/>
+</code></pre>
+
+
+<p><br/></p>
+
+	</div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(".bs-docs-section h3").each(function(index, value) {
+            $(this).attr("id", "header"+index);
+            var li = "<li><a href="+"'#header"+index+"'>"+$(this).text()+"</a><li>";
+            $(".bs-sidebar .nav").append(li);
+            $(this).find("h4").each(function(i, v) {
+            })
+        })
+    })
+</script>
+
+<div class="container">
+	<div class="row ">
+        <div class="col-lg-12">
+            <div class="label-primary">友情链接</div>
+            <div class="well well-sm">...</div>
+        </div>
+    </div>
+    <div class="footer text-center">
+          2013 08 28
+    </div>
+</div>
+<script>
+	
+</script>
+</body>
+</html>
