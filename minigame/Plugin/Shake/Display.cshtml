@@ -1,0 +1,124 @@
+﻿@model Sign
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Title</title>
+    <link href="~/App_Content/Plugin/Shake/style.css" rel="stylesheet" />
+    <script src="~/App_Content/Script/jquery-1.9.1.min.js"></script>
+    <script src="~/App_Content/Script/Common.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>@(Model.Title)(共<em id="ResultCount">0</em>人上墙)</h1>
+        <ul class="mnav">
+            <li class="selected">
+                <a class="mt" href="@Url.Action("Display", "Signs")">
+                    <span class="navicon"></span>
+                    <span class="navtxt">上墙</span>
+                </a>
+            </li>
+            <li>
+                <a class="yy" href="@Url.Action("Display", "Rocks")">
+                    <span class="navicon"></span>
+                    <span class="navtxt">摇一摇</span>
+                </a>
+            </li>
+            <li>
+                <a class="fs" href="javascript:;">
+                    <span class="navicon"></span>
+                    <span class="navtxt">全屏</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <dl class="onWall">
+        <dt class="clear">
+            <img src="@TenantHelper.Tenant.QRCode" />
+            @if (string.IsNullOrEmpty(Model.Content))
+            {
+                <div>
+                    1、请扫描左方二维码，关注微信号。<br />
+                    2、点击右下角签到赚积分菜单，点击签到。
+                </div>
+            }
+            else
+            {
+                <div>
+                    @Html.Raw(Model.Content.Replace("\r", "<br/>"))
+                </div>
+            }
+        </dt>
+        <dd>
+            <div class="award" style="display:block;">
+                <div class="wrap">
+                    <ul>
+                        @*<li>
+                                <img title='" + nickname + "' alt='" + nickname + "' src="images/sq.jpg">
+                                <div><h3>孙仲谋</h3><p>今天车展人还真是多，我也来凑下热闹。</p></div>
+                            </li>*@
+                    </ul>
+                </div>
+            </div>
+        </dd>
+    </dl>
+    <div style="display: none;">
+        <audio id="audioSign" src="~/App_Content/Plugin/Shake/sign.mp3"></audio>
+    </div>
+</body>
+</html>
+@Html.Hidden("SignId", Model.Id)
+<script>
+
+    var trackInterval;
+    var audioSign = $('#audioSign').get(0);
+
+    $(function ()
+    {
+        //跟踪用户
+        trackInterval = setInterval(track, 1000);
+    })
+
+    function track()
+    {
+        $.ajax
+        ({
+            url: "/Signs/Track",
+            type: 'post',
+            data: { Id: $("#SignId").val() },
+            error: disposeError,
+            success: function (result)
+            {
+                if (disposeException(result)) return;
+                displaySign(result);
+            }
+        });
+    }
+
+
+    function displaySign(data)
+    {
+        var resultCount = parseInt($("#ResultCount").val());
+        if (resultCount >= data.length) return;
+
+        $("#ResultCount").html(data.length);
+        $.each(data, function (index, item)
+        {
+            var customerId = item.CustomerId;
+            var nickname = item.Display;
+            var signature = item.Signature == null ? "我可什么都没说哦" : item.Signature;
+            var headImgUrl = "/App_Content/Image/Head.png";
+            if (item.HeadImgUrl && item.HeadImgUrl.length > 0)
+            {
+                var headImgUrl = item.HeadImgUrl;
+            }
+
+            var li = $(".award li[id='" + customerId + "']");
+            if (li.length == 0)
+            {
+                audioSign.play();
+                $(".award ul").prepend("<li id='" + customerId + "'><img title='" + nickname + "' alt='" + nickname + "' src='" + headImgUrl + "'><div><h3>" + nickname + "</h3><p>" + signature + "</p></div></li>");
+            }
+        });
+    }
+
+</script>
