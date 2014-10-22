@@ -1,0 +1,29 @@
+﻿
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="height=device-height,width=320,initial-scale=1.0,mininum-scale=1.0,maximum-scale=1.0,user-scaleble=no" />
+    <title>刮刮卡</title>
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        $('document').ready(function () {
+            var canvasElement = document.getElementById('main');
+
+            setupCanvases(canvasElement, draw,show);
+        });
+
+        function draw() {
+            setScratchpadText("三等奖");
+        }
+        function show() {
+            alert("三等奖");
+        }
+    </script>
+</head>
+<body>
+    <canvas id="main"></canvas>
+</body>
+</html>

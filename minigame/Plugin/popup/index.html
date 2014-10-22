@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+
+<body>
+<h1>弹出层DEMO</h1>
+    <a href="#" id="btn-aaa">打开一个表单</a>
+    <a href="#" id="btn-bbb">普通提示</a>
+    <a href="#" id="btn-ccc">选择确认框</a>
+    <br><br>
+    <div>
+      用于演示用的表单，实际中会将容器隐藏
+      <form id="form-1">
+          a:<input type="text">
+          <br>
+          b:<input type="text">
+          <br>
+          b:<input type="text">
+          <br>
+          b:<input type="text">
+          <br>
+          b:<input type="text">
+          <br>
+          <input type="submit">
+      </form>
+    </div>
+<!--调用说明-->
+<pre>
+//依赖文件
+zepto.js
+
+//默认值配置
+var defaults = {
+    id:'',
+    formId:null,
+    title:"提示",
+    message:"",
+    cnacel:"取消",
+    onCancel: function(){},
+    ok:"确认",
+    onOk: function(){},
+    cancelOnly:false,
+    okClass:'button',
+    cancelClass:'button',
+    onShow:function(){},
+    onHide:function(){},
+    closeOnOk:true,
+    hideTitle:false,
+    //重写样式
+    popClass:''
+};
+
+//调用示例：
+//默认容器都是body
+$('body').popup({
+    title:'表单提交'
+    ,id:'pop-1'
+    ,formId:'form-1'
+    ,closeOnOk:false
+    ,ok:'提交'
+    ,onOk:function(){
+        $('#form-1').submit();
+    }
+});
+</pre>
+<script src="../../script/zepto.js"></script>
+<script src="popup.js"></script>
+<link href="popup.css" rel="stylesheet" />
+
+<script>
+    $('#btn-aaa').click(function(){
+        $('body').popup({
+            title:'表单提交'
+            ,id:'pop-1'
+            ,formId:'form-1'
+            ,closeOnOk:false
+            ,ok:'提交'
+            ,onOk:function(){
+                $('#form-1').submit();
+            }
+        });
+        return false;
+    });
+
+    $('#btn-bbb').click(function(){
+        $('body').popup('这是普通提示');
+        return false;
+    });
+
+    $('#btn-ccc').click(function(){
+        $('body').popup({
+            title:'提示'
+            ,message:'您是否要退出'
+            ,id:'pop-2'
+            ,onOk:function(){
+                alert('OK');
+            }
+        });
+        return false;
+    });
+
+    $('#form-1').bind('submit',function(){
+        alert('表单form-1提交');
+        return false;
+    });
+
+</script>
+</body>
+</html>

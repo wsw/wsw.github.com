@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>戳一戳</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/swiper.css" />
+	<script type="text/javascript" src="js/zepto.js" /></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+	<script>
+	var imgUrl = 'http://dq.vcar360.com/Special/BuickGEF140626/images/shareIcon.png';
+	var lineLink = 'http://dq.vcar360.com/Special/BuickGEF140626/';
+	var descContent = '2014戳一戳';
+	var shareTitle = '戳一戳';
+	var appid = 'wx10e179771f175480';
+    </script>
+    <script src="js/share.js"></script>
+</head>
+<body>
+<img style="display:none" src="" />
+<div id="load" class="load">
+    <div class="load6">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<div class="swiper-container" id="swCon">
+    <div class="arrow-left_a"><img class="arrow-left" src="images/pre.png" /></div>
+    <div class="arrow-right_a"><img class="arrow-right" src="images/here.png" /></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page_1 img" id="page_1">
+        	<img src="images/body_01.jpg" />
+        </div>
+    	<div class="swiper-slide page_2" id="page_2">
+        	<div class="chuo2">
+                <div class="top img">
+                    <span>
+                        <em>
+                        <p>我的最高记录</p>
+                        <big>813</big>
+                        </em>
+                    </span>
+                    <span>
+                    	<u id="charts" class="charts"></u>
+                        <em>
+                        <p>我的排名</p>
+                        <big>NO.1</big>
+                        </em>
+                    </span>
+                <img src="images/bg_01.jpg" />
+                <a class="gameRule" id="gameRule" href="javascript:;"></a>
+                </div>
+                <div class="tit">
+                    倒计时:<small>努力戳噢，时间停止前戳到都是你的。</small>
+                </div>
+                <div class="time clear">
+                    <span><b><em class="second1">1</em></b></span><span><b><em class="second">0</em></b></span><i></i><span><b><em class="ms1">0</em></b></span><span><b><em class="ms">0</em></b></span>
+                </div>
+                <div class="cBottom img">
+                    <span class="btn_c" id="playbtn"></span>
+                    <img src="images/bg_02.jpg" />
+                </div>
+            </div>
+            <div class="chuoLoad"><span>成绩提交中……</span></div>
+        </div>
+    </div>
+</div>
+<div class="chengji">
+    <div class="cj_a img clear">
+        <div class="cj_b">
+        <span>戳得<big id="pri">999</big>元</span>
+        <p>
+            <i>貌似手活不熟练哦~</i>
+            <em>您只打败了全国31%的网友哦</em>
+        </p>
+        <dl>
+            <dd><input id="tel" type="tel" /></dd>
+            <dd><input id="name" type="text" /></dd>
+        </dl>
+        <div class="sub">
+            <a href="javascript:;" onClick="saveData()"></a><a id="reload" href="javascript:;"></a>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="gameRuleC" id="gameRuleC">
+	<div class="top img">
+        <span>
+            <em>
+            <p>我的最高记录</p>
+            <big>813</big>
+            </em>
+        </span>
+        <span class="phan">
+            <em>
+            <p>我的排名</p>
+            <big>NO.1</big>
+            </em>
+        </span>
+    <img src="images/bg_01.jpg" />
+    <a class="gameRule" href="javascript:;"></a>
+    </div>
+    <div class="sm img">
+    	<div class="bClose img" id="bClose">
+        <img src="images/icon_03.png" />
+        </div>
+        <div class="sm_a">
+            <h3>游戏玩法：</h3>
+            <p>京东账号里优惠券怎么使用？</p>
+            <p>1)选购商品后进入订单结算流程，在“订单信息确认”页面的“结算信息”板块”， 点击“(+)使用优惠券抵消部分总额”；</p>
+            <p>2)选择要使用的实体券或电子券；如果是实体券，在输入框内输入实体券上密码点击添加即可。选择优惠券后，点击“提交订单”即可。</p>
+            <h3>游戏玩法：</h3>
+            <p>京东账号里优惠券怎么使用？</p>
+            <p>1)选购商品后进入订单结算流程，在“订单信息确认”页面的“结算信息”板块”， 点击“(+)使用优惠券抵消部分总额”；</p>
+            <p>2)选择要使用的实体券或电子券；如果是实体券，在输入框内输入实体券上密码点击添加即可。选择优惠券后，点击“提交订单”即可。</p>
+            <h3>游戏玩法：</h3>
+            <p>京东账号里优惠券怎么使用？</p>
+            <p>1)选购商品后进入订单结算流程，在“订单信息确认”页面的“结算信息”板块”， 点击“(+)使用优惠券抵消部分总额”；</p>
+            <p>2)选择要使用的实体券或电子券；如果是实体券，在输入框内输入实体券上密码点击添加即可。选择优惠券后，点击“提交订单”即可。</p>
+            <h3>游戏玩法：</h3>
+            <p>京东账号里优惠券怎么使用？</p>
+            <p>1)选购商品后进入订单结算流程，在“订单信息确认”页面的“结算信息”板块”， 点击“(+)使用优惠券抵消部分总额”；</p>
+            <p>2)选择要使用的实体券或电子券；如果是实体券，在输入框内输入实体券上密码点击添加即可。选择优惠券后，点击“提交订单”即可。</p>
+        </div>
+        <img src="images/bg_01.png" />
+    </div>
+</div>
+
+<div class="gameRuleC gameRuleB" id="gameRuleB">
+    <div class="top img">
+        <span>
+            <em>
+            <p>我的最高记录</p>
+            <big>813</big>
+            </em>
+        </span>
+        <span class="phan">
+            <em>
+            <p>我的排名</p>
+            <big>NO.1</big>
+            </em>
+        </span>
+    <img src="images/bg_01.jpg" />
+    <a class="gameRule" href="javascript:;"></a>
+    </div>
+    <div class="sm img">
+        <div class="sm_head"><img src="images/bg_02.png" /></div>
+        <div class="sm_a">
+            <table>
+                <tr>
+                    <th class="t1">排名</th>
+                    <th class="t2">昵称</th>
+                    <th class="t3">手机号</th>
+                    <th class="t4">最高金币</th>
+                </tr>
+                <tr>
+                    <td><b>1</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>2</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>3</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>4</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>5</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>6</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>7</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>8</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>9</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+                <tr>
+                    <td><b>10</b></td>
+                    <td>张先生</td>
+                    <td>135****1234</td>
+                    <td>999</td>
+                </tr>
+            </table>
+        </div>
+        <img src="images/bg_01.png" />
+        <div class="share" onclick="document.getElementById('mcover').style.display='block';"><i class="img"><img src="images/share.png"></i>召唤朋友挑战一下 分享朋友圈</div>
+    </div>
+</div>
+
+<div onClick="document.getElementById('mcover').style.display='';" id="mcover" style=""><img src="images/guide.png"></div>
+<script>
+function cjLoad(){
+	$(".chuoLoad").show();
+	setTimeout(function(){
+		$(".chuoLoad").hide();
+		$("#swCon").css({'position':'absolute','z-index':'-1'});
+		$(".chengji").show();
+	},1500)
+}
+	var mySwiper = new Swiper('.swiper-container',{
+	mode: 'vertical',
+	shortSwipes:false,//禁止滑动
+	speed : 200,
+	followFinger:false,
+	onSlideChangeStart :function(){
+		var pageno = mySwiper.activeIndex;
+		switch (pageno)
+		{
+		case 0:
+			//page1
+			$(".arrow-left_a").hide();
+			
+			//page2
+			$(".arrow-right_a").show();
+			break;
+		case 1:
+			//page1
+			$(".arrow-left_a").show();
+			
+			//page2
+			$(".arrow-right_a").hide();
+			break;
+		}
+	}
+	})
+	$('.arrow-left').on('click', function(e){
+	e.preventDefault();
+	mySwiper.swipePrev();
+    document.addEventListener('touchmove', preventDefault, false);
+	})
+	$('.arrow-right').on('click', function(e){
+	e.preventDefault();
+	mySwiper.swipeNext();
+    document.addEventListener('touchmove', preventDefault, false);
+	})
+</script>
+<script>
+var addPoint= parseInt("1"),//点击一次金币增加数量
+	gameTime = 1,//游戏时间(秒)
+	maxCoin = 10,
+	gameTimeS = gameTime * 100,
+	tap = 'touchstart click',/*MSPointerDown*/
+	playbtn = $('#playbtn'),
+	point = 0 ,
+	ifstart = false
+function preventDefault(e) { e.preventDefault(); };
+
+//重玩
+function chongzhi(){
+	point = 0,ifstart = false;
+	$(".second1").html(Math.floor(gameTime / 10));
+	$(".second").html(gameTime % 10);
+	$(".arrow-left_a").show();
+	$(".chengji").hide();
+	$("#swCon").css({'position':'static','z-index':'1'});
+}
+
+$(function(){
+	$(".arrow-left_a").hide();
+	$(".second1").html(Math.floor(gameTime / 10));
+	$(".second").html(gameTime % 10);
+})
+
+$("#close").on('click',function(){
+	chongzhi();
+	$(".chengji").hide();
+})
+$("#reload").on('click',function(){
+	chongzhi();
+	$(".chengji").hide();
+})
+/*游戏规则---*/
+$("#gameRule").on('click',function(){
+	chongzhi();
+	document.removeEventListener('touchmove', preventDefault);
+	$("#gameRuleC").animate({
+		translate3d: '100%,0,0',
+		opacity: 1
+	}, 500, 'ease-out');
+})
+$("#gameRuleB .gameRule").on('click',function(){
+	chongzhi();
+	document.removeEventListener('touchmove', preventDefault);
+	$("#gameRuleC").animate({
+		translate3d: '100%,0,0',
+		opacity: 1
+	}, 500, 'ease-out');
+	$("#gameRuleB").animate({
+		translate3d: '-100%,0,0',
+		opacity: 0
+	}, 500, 'ease-out');
+})
+$("#gameRuleC .phan").on('click',function(){
+	chongzhi();
+	document.removeEventListener('touchmove', preventDefault);
+	$("#gameRuleC").animate({
+		translate3d: '-100%,0,0',
+		opacity: 0
+	}, 500, 'ease-out');
+	$("#gameRuleB").animate({
+		translate3d: '100%,0,0',
+		opacity: 1
+	}, 500, 'ease-out');
+})
+$("#bClose").on('click',function(){
+	chongzhi();
+    document.addEventListener('touchmove', preventDefault, false);
+	$("#gameRuleC").animate({
+		translate3d: '-100%,0,0',
+		opacity: 0
+	}, 500, 'ease-out');
+})
+/*游戏规则---*/
+
+/*排行榜---*/
+$("#charts").on('click',function(){
+	chongzhi();
+	document.removeEventListener('touchmove', preventDefault);
+	$("#gameRuleB").animate({
+		translate3d: '100%,0,0',
+		opacity: 1
+	}, 500, 'ease-out');
+	$("#gameRuleC").animate({
+		translate3d: '-100%,0,0',
+		opacity: 0
+	}, 500, 'ease-out');
+})
+$("#gameRuleB .phan").on('click',function(){
+	chongzhi();
+    document.addEventListener('touchmove', preventDefault, false);
+	$("#gameRuleB").animate({
+		translate3d: '-100%,0,0',
+		opacity: 0
+	}, 500, 'ease-out');
+})
+
+function hideGRBtn(){
+	$('.page_2 .charts').hide();
+	$('.page_2 .gameRule').hide();
+}
+function showGRBtn(){
+	$('.page_2 .charts').show();
+	$('.page_2 .gameRule').show();
+}
+/*排行榜---*/
+
+    // 点击按钮
+    $(playbtn).on(tap, function () {
+        $(this).find('.txt').addClass('hide');
+        $(this).addClass('down');
+        jump();
+		
+		$(".arrow-left_a").hide();
+		hideGRBtn();
+		
+        if (!ifstart) {
+            getDate(gameTimeS);
+            ifstart = true;
+        }
+    }).on('touchend', function () {
+        $(this).removeClass('down');
+    })
+    // 跳金币
+    function jump() {
+		var ran = Math.random();
+		if(ran>0.5){ran = ran*-60}else{ran = ran*60};
+		var s = Math.round(ran) + 'px';
+        point += addPoint;
+        $('<div>').addClass('coin').html("<img src='images/icon_01.png' />")
+          .appendTo(playbtn)
+          .animate({
+			  scale:'2,2',
+              translate3d: s+',-150px,0',
+			  rotate:'720deg',
+              opacity: 0
+          }, 600, 'ease-in', function () {
+              $(this).detach();
+          });
+    }
+	
+    // 时钟
+    function getDate(num) {
+        var second = $('.second'),
+            ms1 = $('.ms'),
+            s = Math.floor(num / 100) - 1,
+            timer = null,
+			ms0 = $('.ms1'),
+			se0 = $('.second1')
+			;
+
+        //second.html('9');
+        //ms1.html('9');
+		if(s<10){
+			se0.html("0");
+			second.html(s);
+		}else{
+			v = Math.floor(s / 10);
+			w = s % 10;
+			se0.html(v);
+			second.html(w);
+		}
+
+        timer = setInterval(function () {
+            num -= 1;
+            var ms = num % 100;
+            if (num % 100 == 0) {
+                s -= 1;
+                if (s < 10) {
+                    //s = '0' + s;
+					se0.html(0);
+					if(s<0){s=0}
+					second.html(s);
+                }else{
+					//分离
+					v = Math.floor(s / 10);
+					w = s % 10;
+					se0.html(v);
+					second.html(w);
+				}
+            }
+            if (ms < 10) {
+                //ms = '0' + ms;
+				ms0.html("0");
+            }
+			//分离
+			f = Math.floor(ms / 10);
+			g = ms % 10;
+			ms0.html(f);
+			ms1.html(g);
+            //ms1.html(ms);
+            if (num < 0) {
+                clearInterval(timer);
+                //playbtn.off();
+				second.html("0");
+				ms0.html("0");
+				se0.html("0");
+				ms1.html("0");
+                result();
+				cjLoad();
+				
+				showGRBtn();
+            }
+        }, 10)
+    };
+
+    // 显示结果
+    function result() {
+		if(point>maxCoin){point=maxCoin}
+        /*
+        if (point > 400) point = 400;
+        $('.pt').text('顶到' + point + '元');
+		$("#pri").text(point);
+        var limit = 320,
+            pct = Math.floor(point / limit * 100),
+            txt = '';
+
+        if (point > limit) {
+            txt = '成绩很不错~<br>您打败了全国98%的网友！<br>堪称无敌小快手！';
+        } else if (pct > 50) {
+            txt = '成绩很不错~<br>您打败了全国' + pct + '%的网友！<br>堪称无敌小快手！';
+        } else {
+            txt = '貌似手活不熟练哦~<br>您只打败了全国' + pct + '%的网友 :(';
+        }
+        $('.result').removeClass('hide').find('.txt').html(txt);*/
+		$("#pri").text(point);
+    }
+    function saveData() {
+        var tel=$("#tel").val();
+        if(isNaN(tel)||tel.length!=11)
+        {
+            alert("请留下你正确的联系方式!");
+			$("#tel").focus();
+            return;
+        }
+
+        if($("#name").val()==""){
+            alert("请留下你的称呼!");
+			$("#name").focus();
+            return;
+        }
+		if(true){
+			$("#charts").click();
+		}
+    }
+    
+        (function () {
+            var onBridgeReady = function () {
+                if (dataForWeixin.hideToolbar) {
+                    WeixinJSBridge.invoke("hideToolbar");
+                } else {
+                    WeixinJSBridge.invoke("showToolbar");
+                }
+                if (dataForWeixin.hideOptionMenu) {
+                    WeixinJSBridge.invoke("hideOptionMenu");
+                } else {
+                    WeixinJSBridge.invoke("showOptionMenu");
+                }
+            };
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        })();
+    </script>
+<script>
+window.addEventListener("load",function() {
+	$("#load").animate({
+            translate3d: '0,-100%,0'
+        }, 600, 'linear',function(){
+			$(this).hide();
+		});
+})
+</script>
+</body>
+</html>
