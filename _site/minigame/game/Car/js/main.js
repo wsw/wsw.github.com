@@ -211,7 +211,9 @@
 
         var _this = this;
 
-        $layer.bind('touchstart', function(e) {
+        var isTouch = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click';
+
+        $layer.bind(isTouch, function(e) {
 
             if (_this.isOver) {
                 return ;
@@ -243,11 +245,11 @@
 
                 if (m === "5") {
                     _this.point++;
-                    $gameSuc.css({left: $target.offset().left+20, top: $target.offset().top});
+                    $gameSuc.css({left: $target.offset().left+20, top: $target.offset().top-100});
                     $gameSuc.fadeIn();
                     setTimeout(function(){
                         $gameSuc.fadeOut();
-                    }, 1000);
+                    }, 500);
                 } else {
                     $target.addClass('icon-'+m+m);
                 }
