@@ -19,6 +19,8 @@
         this.index = this.layerCol;
         this.gameplay = false;
         this.isOver = false;
+
+        this.tg = null;  //
     };
 
     window.Game = function(data){     //挂到window对象下
@@ -207,14 +209,36 @@
         }
     };
 
+    Game.prototype.isNextRow = function(index, did, element) {
+        var tg;
+        if (index < 10 && (index+1) === did) {
+            tg = element.prev().prev().prev().prev();
+        }
+
+        if (index == 10 && did == 1) {
+            var parent = element.parent();
+            var curId = element.index();
+            var sibling = parent.siblings("div[id^='gameLayer']");
+
+            tg = sibling.find('div').eq(40-4+curId);
+        }
+
+        if (tg && tg.attr('type') == "car") {
+            this.tg = tg;
+            return true;
+        }
+
+        return false;
+
+    };
+
     Game.prototype.eventHandler = function () {
 
         var _this = this;
 
         var isTouch = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click';
 
-        $layer.bind(isTouch, function(e) {
-
+        $layer.bind(isTouch, function (e) {
             if (_this.isOver) {
                 return ;
             }
@@ -233,9 +257,13 @@
             var type = $target.attr('type');
             var did = parseInt($target.attr('data-index'));
 
-            if (type === "car" && _this.index == did) {
+            if (type === "car" && _this.index == did || _this.isNextRow(_this.index, did, $target)) {
 
                 _this.playAudio(videoTap);
+
+                if (!(type === "car" && _this.index == did)) {
+                    $target = _this.tg;
+                }
 
                 if (!_this.gameplay) {
                     _this.gameplay = true;
@@ -247,6 +275,7 @@
                     _this.point++;
                     $gameSuc.css({left: $target.offset().left+20, top: $target.offset().top-100});
                     $gameSuc.fadeIn();
+                    $target.addClass('icon-'+m+m);
                     setTimeout(function(){
                         $gameSuc.fadeOut();
                     }, 500);
@@ -276,7 +305,7 @@
                 this.freshLayer(gamelayer);
             } else {
                 gamelayer.css({"-webkit-transform": "translate3d(0px, "+ offset_y +"px, 0px)",
-                    "transition": "150ms"});
+                    "transition": "100ms"});
             }
         }
     };

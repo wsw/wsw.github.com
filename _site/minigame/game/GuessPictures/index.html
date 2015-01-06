@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>猜</title>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="index">
+        <header>
+            <img src="css/images/logo.png" alt="logo" data-action="clear"/>
+            <div>
+                <h1>第 <em class="Number">50</em> 关</h1>
+            </div>
+        </header>
+        <article>
+            <div class="index-top">
+                <img id="h1" src="css/images/h1.png" />
+                <img id="h2" src="css/images/h2.png" />
+                <img id="h4" src="css/images/cloud01.png" />
+                <img id="h3" src="css/images/h3.png" />
+                <img id="h5" src="css/images/cloud02.png" />
+                <div class="index-number">
+                    当前共<span>3299</span>人在玩
+                </div>
+            </div>
+            <div class="index-bg">
+                <img class="bg-1" src="css/images/flower1.png" />
+                <img class="bg-2" src="css/images/flower2.png" />
+                <img class="bg-3" src="css/images/flower3.png" />
+            </div>
+            <div class="index-car" id="index-car">
+                <img src="css/images/car1.png" class="car-1" alt="car-1"/>
+                <img src="css/images/car2.png" class="car-2" alt="car-2"/>
+                <img src="css/images/car3.png" class="car-3" alt="car-3"/>
+            </div>
+            <div class="index-tip">
+                <img id="tip01" src="css/images/tip01.png" alt="tip"/>
+                <img id="tip02" src="css/images/tip02.png" alt="tip"/>
+            </div>
+        </article>
+        <footer class="index-button">
+            <a href="javascript:;"><img src="css/images/menu01.png" data-action="guide"/></a>
+            <a href="javascript:;" class="gameStrat"><img src="css/images/menu02.png" data-action="game"/></a>
+            <a href="javascript:;"><img src="css/images/menu03.png" data-action="rank"/></a>
+        </footer>
+    </section>
+    <section class="main hide">
+        <header>
+            <img src="css/images/logo.png" alt="logo" data-action="clear"/>
+            <div>
+                <h1>第 <em class="Number">50</em> 关</h1>
+            </div>
+        </header>
+        <nav>
+            <a href="javascript:;"><span data-action="guide">游戏玩法</span></a>
+            <a href="javascript:;"><span data-action="rank">排行榜</span></a>
+            <a href="javascript:;"><span data-action="my">我的礼品</span></a>
+        </nav>
+        <article class="game">
+            <div class="main-logo">
+                <img src="css/images/main_logo.png" alt="logo"/>
+            </div>
+            <div class="main-img">
+                <img src="css/images/default.png" alt="default" id="gameImg"/>
+            </div>
+            <div class="result-model">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="select-model clearfix">
+                <span>活</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span>活</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="main-tip">
+                <div>
+                    <h3>过关提示</h3>
+                    <p id="gameTip">我叫你一声过儿，你敢答应吗？</p>
+                </div>
+            </div>
+        </article>
+        <article class="guide hide">
+            <h3>游戏玩法</h3>
+            <p>为各位玩家带来疯狂猜图1.3版本标志答案，这些标志大部分都是疯狂猜图1.3答案品牌部分里的，
+                因此各位玩家如果是在品牌类目遇到了困难就可以来看看这篇攻略里有没有你想要的答案啦！
+                更多1.3答案也可以看看口袋巴士的另外一些攻略，如果想要找除了1.3以外的攻略就到口袋巴士
+                疯狂猜图专区的图鉴里去看一看吧！下面放出1.3标志答案和其他答案索引。</p>
+        </article>
+        <article class="rank hide">
+            <div class="content">
+                <h3>排名前100 <span>当前<em>920</em>人参加</span></h3>
+                <ul class="ul-top">
+                    <li>
+                        <span class="row-1"> 排名 </span>
+                        <span class="row-2"> 姓名 </span>
+                        <span class="row-3"> 手机号 </span>
+                        <span class="row-4"> 闯关 </span>
+                    </li>
+                </ul>
+                <ul class="ul-center" id="rankContent">
+                    <li>
+                        <span class="row-1 color-red"> 1 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 10 </span>
+                    </li>
+                    <li>
+                        <span class="row-1 color-orange"> 2 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 20 </span>
+                    </li>
+                    <li>
+                        <span class="row-1 color-yellow"> 3 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 10 </span>
+                    </li>
+                    <li>
+                        <span class="row-1"> 4 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 20 </span>
+                    </li>
+                    <li>
+                        <span class="row-1"> 5 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 10 </span>
+                    </li>
+                    <li>
+                        <span class="row-1"> 6 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 20 </span>
+                    </li>
+                    <li>
+                        <span class="row-1"> 7 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 10 </span>
+                    </li>
+                    <li>
+                        <span class="row-1"> 8 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 20 </span>
+                    </li>
+                </ul>
+                <ul class="ul-footer">
+                    <li>
+                        <span class="row-1"> 9 </span>
+                        <span class="row-2"> magyfdfs </span>
+                        <span class="row-3"> 156*****9654 </span>
+                        <span class="row-4"> 20 </span>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <article class="submit hide">
+            <div class="content">
+                <h3>恭喜您获得</h3>
+                <p>500元现金抵用卷1张，您可选择任意经销商处领取！。</p>
+                <div class="ipt">
+                    <label for="UserName">姓名：</label>
+                    <input id="UserName" type="text"/>
+                </div>
+                <div class="ipt">
+                    <label for="PhoneNumber">手机：</label>
+                    <input id="PhoneNumber" type="text"/>
+                </div>
+                <div class="btn">
+                    提交个人信息取奖
+                </div>
+            </div>
+        </article>
+        <article class="my hide">
+            <div class="content">
+                <h3>您的奖品</h3>
+                <p>500元现金抵用卷1张</p>
+                <div class="select">
+                    <select name="slt" id="slt">
+                        <option value="0">选择经销商</option>
+                        <option value="1">经销商1</option>
+                        <option value="2">经销商2</option>
+                        <option value="3">经销商3</option>
+                    </select>
+                </div>
+                <div class="ipt">
+                    <input type="text" placeholder="输入兑奖码:"/>
+                </div>
+                <div class="btn">
+                    我要兑奖
+                </div>
+                <div class="btn used">
+                    您的奖品已兑换
+                </div>
+            </div>
+        </article>
+        <div class="main-back hide" id="back" data-action="back">
+            <img src="css/images/back.png" alt="back" data-action="back"/>
+            <span>返回</span>
+        </div>
+    </section>
+    <div class="share hide">
+        <div class="mask" onclick="$(this).parent().hide()"></div>
+        <img src="css/images/share.png" onclick="$(this).parent().hide()" alt="share"/>
+    </div>
+    <div class="fail hide" id="fail">
+        <div class="mask"></div>
+        <div class="content">
+            <h3>回答错误</h3>
+            <p>您可以分享到朋友圈求助答案，同时还能增加一次试错机会。</p>
+            <div class="btn">
+                <a href="javascript:;" onclick="$(this).parents('.fail').hide();">返回答题</a>
+                <a href="javascript:;" data-action="share">分享</a>
+            </div>
+        </div>
+    </div>
+    <div id="load" class="load">
+        <div class="load5">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+    <audio src="css/audio/music.mp3" autoplay="autoplay" loop="loop" style="position: absolute; z-index: 0; top: 0;" id="music"></audio>
+</body>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script>
+    $('#h3,#tip02').css({opacity:'0',scale:'0'});
+    $('#index-car').css({opacity:'0',scale:'0'});
+    function animate(){
+        $('#index-car').transition({opacity:'1',scale:'1'},600,'ease-in-out',function(){
+            $('#h3').delay(200).transition({opacity:'1',scale:'1'},500,'ease-in-out',function(){
+                $(this).transition({scale:'1'},500,'ease-in-out');
+                $('#tip02').delay(350).transition({opacity:'1',scale:'1'},500,'ease-in-out');
+            });
+        })
+    }
+    $(function(){
+        var winHeight = $("body").height();
+        var hHeigth = $(".index header").height();
+        //var arHeight = winHeight > 550 ? (winHeight - hHeigth) : (550 - hHeigth);
+        $(".index article").height(winHeight - hHeigth);
+        $(".main article").height(winHeight - $(".main>header").height() - 1 - $(".main>nav").height());
+
+        $('body').bind('resize', function() {
+           // alert($(window).height())
+        });
+
+    });
+
+    window.onload = function(){
+        var music = document.getElementById('music');
+        music.load();
+        music.play();
+
+        $("#load").animate({
+            top: '-100%',
+            opacity: 0
+        }, 500,function(){
+            $(this).hide();
+            animate();
+        });
+    }
+
+</script>
+<script src="js/index.js"></script>
+<script>
+    var ajax = {
+        outcome: function (callback) {
+            var result = {"Count":17,"RemainCount":3,"IsUse":false,"IsTime":true,"IsPass":true,"IsSubmit":true,"Gift":{"Id":null,"Name":null},"Levels":[{"Id":1,"MinigameId":1377,"Name":"黑人","Keys":"这不是白人","Image":"/App_Attachment/UnAuthorizationFolder/Game_MinigameLevelImage/eb02eb04-be0d-4a95-919d-ce0703512938/eb02eb04-be0d-4a95-919d-ce0703512938.jpg?20141222180257","Point":0,"CreateTime":"2014-12-22T18:00:14"},{"Id":2,"MinigameId":1377,"Name":"昂科威","Keys":"全能中型SUV","Image":"/App_Attachment/UnAuthorizationFolder/Game_MinigameLevelImage/9714e7e4-9948-498e-8b7e-6b19cee70706/9714e7e4-9948-498e-8b7e-6b19cee70706.jpg?20141222181546","Point":0,"CreateTime":"2014-12-22T18:15:34"}],"Ranks":[{"Id":134501,"Name":"1233","MobilePhone":"15659973692","Level":0,"CreatTime":"2015-01-04T11:11:42.497"},{"Id":134502,"Name":"1fgd2f3","MobilePhone":"18065182856","Level":0,"CreatTime":"2015-01-04T11:19:51.24"},{"Id":134504,"Name":"q","MobilePhone":"13905007405","Level":0,"CreatTime":"2015-01-04T11:28:42.897"}],"MyRank":{"Id":134502,"Name":"1fgd2f3","MobilePhone":"18065182856","Level":0,"MyNo":2,"CreatTime":"2015-01-04T11:19:51.24"}};
+            callback && callback(result);
+        },
+
+        use: function (province, city, selTenant, callback) {
+            callback && callback();
+        },
+
+        signup: function (name, mobilePhone, callback) {
+            callback && callback();
+        },
+        play: function (point, callback) {
+            callback && callback();
+        },
+        setPass: function (callback) {
+            callback && callback();
+        }
+    };
+
+    var gameData = {};
+
+    $(function () {
+        ajax.outcome(function (result) {
+            gameData.list = result.Levels;
+            Game({ ajax: ajax, config: { }, result: result });
+        });
+    });
+
+    var tenantName = "";
+    var shareTitle = "";
+    var shareImage = "";
+    var shareUrl = "";
+    var shareAppId = "";
+    var shareContent = "";
+    function initShare() {
+
+    }
+</script>
+</html>
