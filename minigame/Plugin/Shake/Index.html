@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>摇一摇</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="http://a.vcar360.com/App_Content/Script/jquery-1.8.2.min.js"></script>
+    <script src="http://a.vcar360.com/App_Content/Script/Common.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>摇一摇</h1>
+    </div>
+    <div class="introduce">
+        <div class="logo">
+            <img src="shakelogo.png" />
+        </div>
+        <div class="rule">
+            <img src="http://a.vcar360.com/App_Attachment/UnAuthorizationFolder/WX_TenantQRCode/1dc4588f-6bde-43d7-b5d1-44735a45d6df/1dc4588f-6bde-43d7-b5d1-44735a45d6df.jpg" />
+            <ol>
+                <li>请扫描左方二维码，关注微信号。</li>
+                <li>回复关键字“1”或点击右下角摇一摇菜单，报名等待游戏开始</li>
+                <li>听从现场指挥，游戏开始后不停摇动手机(注意手机不要锁屏待机)</li>
+            </ol>
+            <div class="clear"></div>
+        </div>
+        <div class="btn"><a onclick="count()">开始游戏</a></div>
+    </div>
+    <div class="countno">5</div>
+    <div class="offline">
+        终点(共<span></span>人参加)
+    </div>
+    <div class="award">
+        <div class="wrap">
+            <ul></ul>
+        </div>
+        <a class="btn" onclick="reset()">重新开始</a>
+    </div>
+    <div class="players">
+        <ul></ul>
+    </div>
+    <div style="display: none;">
+        <audio id="audioCount" src="count.mp3"></audio>
+        <audio id="audioBgein" src="bgein.mp3" loop="true"></audio>
+        <audio id="audioEnd" src="end.mp3"></audio>
+    </div>
+</body>
+</html>
+<input id="RockId" name="RockId" type="hidden" value="6" />
+<input data-val="true" data-val-number="字段 Step 必须是一个数字。" data-val-required="The Step field is required." id="Step" name="Step" type="hidden" value="100" />
+<input data-val="true" data-val-number="字段 ResultCount 必须是一个数字。" data-val-required="The ResultCount field is required." id="ResultCount" name="ResultCount" type="hidden" value="3" />
+<script>
+
+    var stepHeight = 1;
+    var trackInterval;
+    var audioCount = $('#audioCount').get(0);
+    var audioBgein = $('#audioBgein').get(0);
+    var audioEnd = $('#audioEnd').get(0);
+
+    $(function ()
+    {
+        //跟踪用户
+        trackInterval = setInterval(track, 300);
+    })
+
+    function count()
+    {
+        audioCount.play();
+        $(".countno").addClass("cntanimation").show();
+        $(".offline").show();
+        $(".introduce").hide();
+        var timer = setInterval(function ()
+        {
+            var mark = false;
+            var countnoText = parseInt($(".countno").html()) - 1;
+            if (countnoText == -1)
+            {
+                countnoText = "Go~";
+                mark = true;
+            }
+            $(".countno").html(countnoText);
+            if (mark)
+            {
+                clearInterval(timer);
+                setTimeout(function ()
+                {
+                    $(".countno").removeClass("cntanimation").hide()
+                }, 500);
+
+                stepHeight = ($(window).height() - $(".offline").height() - $(".header").height()) / (parseInt($("#Step").val()) * 10);
+                begin();
+            }
+        }, 1000);
+    }
+
+
+    function begin()
+    {
+        audioBgein.play();
+        audioCount.pause();
+
+        $.ajax
+        ({
+            url: "/Rocks/Begin",
+            type: 'post',
+            data: { Id: $("#RockId").val() },
+            error: disposeError,
+            success: function (result)
+            {
+                if (disposeException(result)) return;
+            }
+        });
+    }
+
+    function track()
+    {
+        $.ajax
+        ({
+            url: "/Rocks/Track",
+            type: 'post',
+            data: { Id: $("#RockId").val() },
+            error: disposeError,
+            success: function (result)
+            {
+                if (disposeException(result)) return;
+                if (result.Status != "End")
+                {
+                    displaySign(result.Sign);
+                }
+                else if (result.Status == "End")
+                {
+                    clearInterval(trackInterval);
+                    displayResult(result.Result);
+                }
+            }
+        });
+    }
+
+    function displaySign(data)
+    {
+        $(".offline span").html(data.length);
+        $.each(data, function (index, item)
+        {
+            var customerId = item.CustomerId;
+            var nickname = item.Display;
+            var headImgUrl = "/App_Content/Image/Head.png";
+            if (item.HeadImgUrl && item.HeadImgUrl.length > 0)
+            {
+                var headImgUrl = item.HeadImgUrl;
+            }
+            var title = "<p>" + nickname + "</p>";
+            if (item.Nickname && item.Nickname.length > 0)
+            {
+                title = "";
+            }
+
+            var step = item.Step;
+            var li = $(".players li[id='" + customerId + "']");
+            if (li.length == 0)
+            {
+                var rand = Math.random();
+                var left = (rand.toFixed(2)) * document.body.clientWidth;
+                $(".players ul").append("<li id='" + customerId + "' style='left:" + left + "px;'>" + title + "<img title='" + nickname + "' alt='" + nickname + "' src='" + headImgUrl + "'></li>");
+            }
+            else
+            {
+                var riseHeight = step * stepHeight;
+                $("#uu").append("<p>step：" + step + "</p>");
+                $("#uu").append("<p>riseHeight：" + riseHeight + "</p>");
+                li.stop().animate({ "bottom": riseHeight + "px" }, 200);
+            }
+        });
+    }
+
+    function displayResult(data)
+    {
+        audioBgein.pause();
+        audioEnd.play();
+
+        var resultCount = parseInt($("#ResultCount").val());
+
+        $.each(data, function (index, item)
+        {
+            if (index > resultCount - 1) return;
+
+            var nickname = item.Display;
+            var headImgUrl = "/App_Content/Image/Head.png";
+            if (item.HeadImgUrl && item.HeadImgUrl.length > 0)
+            {
+                var headImgUrl = item.HeadImgUrl;
+            }
+            $(".award ul").append("<li><img title='" + nickname + "' alt='" + nickname + "' src='" + headImgUrl + "'><div><h3>第" + (index + 1) + "名</h3><p>" + nickname + "</p></div></li>");
+        });
+
+        $(".award").show();
+        $(".players").hide();
+        $(".offline").hide();
+    }
+
+    function reset()
+    {
+        if (confirm("重新开始，将删除当前获奖名单，确定要重新开始？"))
+        {
+            location.reload();
+        }
+    }
+
+</script>

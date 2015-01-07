@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1,maximum-scale=1">
+    <meta name="apple-touch-fullscreen" content="no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="../../Plugin/popup/popup.css"/>
+    <link rel="stylesheet" href="../../Plugin/loading/loading.css"/>
+    <title>摇上上签撞运送大礼</title>
+</head>
+<body>
+    <div class="index">
+        <div class="index-share">
+            <img src="css/image/btn_4.png" onclick="$('#sharePage').show()">
+        </div>
+        <div class="index-play">
+            <img src="css/image/play.png" alt="play"/>
+        </div>
+        <div class="footer-car">
+            <img src="css/image/car.png" alt="car"/>
+        </div>
+    </div>
+    <div id="show" class="show hide">
+        <div class="show-bg active">
+            <img src="css/image/show_bg.png" alt=""/>
+        </div>
+        <div class="show-center">
+            <p></p>
+        </div>
+        <div class="show-icon icon-1 bounceIn">
+            <img src="css/image/icon.png" alt=""/>
+        </div>
+        <div class="show-icon icon-2 bounceIn">
+            <img src="css/image/icon.png" alt=""/>
+        </div>
+        <div class="show-icon icon-3 bounceIn">
+            <img src="css/image/icon.png" alt=""/>
+        </div>
+        <div class="show-icon icon-4 bounceIn">
+            <img src="css/image/icon.png" alt=""/>
+        </div>
+    </div>
+    <div id="sharePage" class="hide" onclick="$(this).hide()">
+        <div class="img"></div>
+    </div>
+    <div id="success" class="success hide">
+        <p class="title"></p>
+        <h1>恭喜！您中了<span>一等奖</span></h1>
+        <h2>xx轮胎一个</h2>
+        <p class="line">
+            <span>提交您的信息</span>
+        </p>
+        <div class="ipt">
+            <input type="text" placeholder="姓名" id="Name"/>
+        </div>
+        <div class="ipt">
+            <input type="text" placeholder="手机号" id="MobilePhone"/>
+        </div>
+        <div class="btn">
+            <a href="#" data-action="submit">提交领奖</a>
+            <a href="#" data-action="restart">再摇一次</a>
+        </div>
+    </div>
+    <div id="fail" class="fail hide">
+        <p class="title"></p>
+        <h1>摇不中？换个姿势吧！</h1>
+        <div class="fail-img"></div>
+        <div class="btn">
+            <a href="#" data-action="restart">再摇一次</a>
+        </div>
+    </div>
+    <div class="page-dialog hide">
+        <p class="title">奖项设置</p>
+        <a href="#" class="close">
+            <img src="css/image/X.png" alt="x" data-action="close"/>
+        </a>
+        <div class="page-container">
+            <ul>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+                <li>一等奖：车模</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-dialog hide">
+        <p class="title">游戏规则</p>
+        <a href="#" class="close">
+            <img src="css/image/X.png" alt="x" data-action="close"/>
+        </a>
+        <div class="page-container">
+            摇动手机等3秒，签就会掉
+            出来，摇动手机等3秒，签
+            就会掉出来，摇动手机等3
+            秒，签就会掉出来，摇动手
+            机等3秒，签就会掉出来，
+            摇动手机等3秒，签就会掉
+            出来，摇动手机等3秒，签
+            就会掉出来，摇动手机等3
+            秒，签就会掉出来，摇动手
+        </div>
+    </div>
+    <div class="page-dialog hide">
+        <p class="title">中奖信息</p>
+        <a href="#" class="close">
+            <img src="css/image/X.png" alt="x" data-action="close"/>
+        </a>
+        <div class="page-container" id="myGift">
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt">
+                    <input type="text" placeholder="由经销商输入验证码"/>
+                    <a href="#">兑奖</a>
+                </div>
+            </div>
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt-used">
+                    已兑奖
+                </div>
+            </div>
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt">
+                    <input type="text" placeholder="由经销商输入验证码"/>
+                    <a href="#">兑奖</a>
+                </div>
+            </div>
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt">
+                    <input type="text" placeholder="由经销商输入验证码"/>
+                    <a href="#">兑奖</a>
+                </div>
+            </div>
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt">
+                    <input type="text" placeholder="由经销商输入验证码"/>
+                    <a href="#">兑奖</a>
+                </div>
+            </div>
+            <div class="wrap">
+                <h1>一等奖：车模</h1>
+                <div class="ipt">
+                    <input type="text" placeholder="由经销商输入验证码"/>
+                    <a href="#">兑奖</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mask" class="overlay hide"></div>
+    <footer class="footer">
+        <div class="block-1">
+            <div class="number">
+                <div class="count" id="count">3</div>
+            </div>
+        </div>
+        <div class="block-2" num="0" onclick="show(this)">
+            <div class="btn-1"></div>
+        </div>
+        <div class="block-2" num="1" onclick="show(this)">
+            <div class="btn-2"></div>
+        </div>
+        <div class="block-2" num="2" onclick="show(this)">
+            <div class="btn-3"></div>
+        </div>
+    </footer>
+    <div id="load" class="load">
+        <div class="load5">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</body>
+<script src="js/zepto.js" type="text/javascript"></script>
+<script src="../../Plugin/popup/popup.js"></script>
+<script src="js/gamebase.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
+<script>
+
+    function show(that) {
+        var num = $(that).attr('num');
+        $(".page-dialog").hide();
+        $(".page-dialog").eq(num).show();
+        $(that).find('div').addClass('active');
+        $(that).siblings('.block-2').find('div').removeClass('active');
+        return false;
+    }
+    var imgList = [
+        "css/image/btn_1.png",
+        "css/image/btn_1_selected.png",
+        "css/image/btn_2.png",
+        "css/image/btn_2_selected.png",
+        "css/image/btn_3.png",
+        "css/image/btn_3_selected.png",
+        "css/image/btn_4.png",
+        "css/image/btn_5.png"
+    ];
+
+    var ajax = {
+        play: function(callback) {
+            var result = {
+                "Status":{"TodayRemainCount":0,"WinBigGift":false},
+                "MyGift":[],
+                "NextGift":{"SignupId":0,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                "TotalCount":10,
+                "BeatCount":0,
+                "WinCount":0
+            };
+            callback && callback(result);
+        },
+        outcome: function(callback) {
+            var result = {
+                "Status":{"TodayRemainCount":8,"WinBigGift":false},
+                "MyGift":[{"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false}],
+                "NextGift":{"SignupId":0,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                "TotalCount":10,
+                "BeatCount":0,
+                "WinCount":0
+            };
+            callback && callback(result);
+            preLoadImg(imgList, function() {
+                $("#load").animate({ top: '-100%', opacity: 0 }, 500, 'linear', function () {
+                    $(this).hide();
+                });  //关闭动画
+            });
+        },
+        signup: function(callback) {
+            var result = {
+                "Status":{"TodayRemainCount":0,"WinBigGift":false},
+                "MyGift":[{"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                    {"SignupId":66227,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"222","IsUse":true}],
+                "NextGift":{"SignupId":0,"GiftRank":0,"GiftId":388,"Point":0,"GiftTitle":"111","IsUse":false},
+                "TotalCount":11,
+                "BeatCount":0,
+                "WinCount":0
+            };
+            callback && callback(result);
+        },
+        use: function(id, callback) {
+            callback && callback();
+        }
+    };
+
+    var config = {
+        code: 11
+    };
+
+    window.onload = function () {
+
+        var winWidth = $('body').width();
+        var footerHeight = (171 * winWidth / 640) -20;
+
+        $("footer.footer").height(footerHeight);
+        $(".footer-car").css("bottom", Math.floor(131*winWidth / 640) + 'px');
+
+        Game({ajax: ajax, config: config});
+    };
+
+    function noBarsOnTouchScreen(arg){
+        var elem, tx, ty;
+        if ('ontouchstart' in document.documentElement){
+            if (elem = document.getElementById(arg)){
+                elem.style.overflow = 'hidden';
+                elem.ontouchstart = ts;
+                elem.ontouchmove = tm;
+            }
+        }
+        function ts(e){
+            var tch;
+            if (e.touches.length == 1){
+                e.stopPropagation();
+                tch = e.touches[0];
+                tx = tch.pageX;
+                ty = tch.pageY;
+            }
+        }
+        function tm(e){
+            var tch;
+            if (e.touches.length == 1) {
+                e.preventDefault();
+                e.stopPropagation();
+                tch = e.touches[0];
+                this.scrollTop += ty - tch.pageY;
+                ty = tch.pageY;
+            }
+        }
+    }
+
+    //2.3系统版本滚动事件
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) { } else {
+            //andriod 2.3以下
+            noBarsOnTouchScreen('list-user');
+        }
+    }
+</script>
+</html>
