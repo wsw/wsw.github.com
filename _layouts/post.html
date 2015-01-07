@@ -1,35 +1,39 @@
 ---
 layout: default
+isPost: true
+comment: true
 ---
-<script type="text/javascript" src="../js/application.js"></script>
-<div class="container bs-docs-container" style="">
-<div class="row">
-<div class="col-md-3">
-    <div class="bs-sidebar hidden-print affix">
-        <ul class="nav bs-sidenav">
-            <li class="active">
-                <a href="#header"></a>
-            </li>
-        </ul>
+<article class="main-article main-article-page">
+    <div class="violet-title">
+        <h3 class="violet-title-item">{{ page.title }}</h3>
     </div>
+    <div class="violet-post">
+        <p class="main-article-meta"><time pubdate="{{ rpost.date | date_to_utc | date: '%Y-%m-%d' }}">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</time></p>
+        <div class="main-article-contant">
+            {{ content }}
+        </div>
+    </div>
+</article>
+<nav class="pagination fn-clear" id="violet-paging">
+    <div class="pagination-list">
+        {% if page.previous %}
+        <a class="prev" href="{{ page.previous.url }}" rel="bookmark"><i class="fa fa-chevron-circle-left"></i>{{ page.previous.title | truncatewords:5 }}</a>
+        {% endif %}
+        {% if page.next %}
+        <a class="next" href="{{ page.next.url }}" rel="bookmark">{{ page.next.title | truncatewords:5 }}<i class="fa fa-chevron-circle-right"></i></a>
+        {% endif %}
+    </div>
+</nav>
+<div class="comment">
+    {% if site.disqus.config %}
+        <div class="comment-cnt">
+            <div id="disqus_thread"></div>
+        </div>
+    {% else %}
+        {% if site.duoshuo.config %}
+        <div class="comment-cnt">
+            <div class="ds-thread"></div>
+        </div>
+        {% endif %}
+    {% endif %}
 </div>
-<div class="col-md-9" role="main">
-
-	<div class="bs-docs-section">
-	    <div class="page-header">
-	         <h1 id="header" class="text-center">{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small> {% endif %}</h1>
-	    </div>
-	    {{ content }}
-	</div>
-</div>
-<script type="text/javascript">
-    $(function(){
-        $(".bs-docs-section h3").each(function(index, value) {
-            $(this).attr("id", "header"+index);
-            var li = "<li><a href="+"'#header"+index+"'>"+$(this).text()+"</a><li>";
-            $(".bs-sidebar .nav").append(li);
-            $(this).find("h4").each(function(i, v) {
-            })
-        })
-    })
-</script>
