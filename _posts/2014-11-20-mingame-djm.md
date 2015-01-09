@@ -65,3 +65,6 @@ update方法即每帧要处理包括物理空间的重力产生，分数的变�
         
 ###编译代码
 <code> cocos compile -p web -m release </code>
+
+###js部分未压缩的
+[src/.js](https://github.com/wsw/wsw.github.com/tree/master/minigame/game/djm/js)
