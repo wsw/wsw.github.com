@@ -4,9 +4,9 @@ title: Phonegap/Cordova 3.4 android 环境配置
 description: Phonegap/Cordova 3.4 android 环境配置
 category: blog
 ---
-Jdk下载安装
+###Jdk下载安装
 
-官网地址：  http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[官网地址 :](http://www.oracle.com/technetwork/java/javase/downloads/index.html)http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 根据自己的系统对应下载安装
 
@@ -18,9 +18,9 @@ JAVA_HOME: 对应安装的主目录
 
 PATH: 对应目录下的bin文件夹路径
 
-Apache-ant下载配置
+###Apache-ant下载配置
 
-官网地址 ： http://ant.apache.org/bindownload.cgi
+[官网地址 ：](http://ant.apache.org/bindownload.cgi)http://ant.apache.org/bindownload.cgi
 
 环境变量设置：
 
@@ -30,9 +30,9 @@ PATH: %ANT_HOME%bin
 
 CLASSPATH: %ANT_HOME%lib
 
-Android-SDK 下载
+###Android-SDK 下载
 
-官网地址 ： http://developer.android.com/sdk/index.html
+[官网地址 ：](http://developer.android.com/sdk/index.html)http://developer.android.com/sdk/index.html
 
 最新的sdk文件中已经包含以下， 可以在eclipse里直接创建android虚拟机了。
 
@@ -40,7 +40,7 @@ Android-SDK 下载
 
 PATH: 加入adb文件对应目录和tools目录
 
-Cordova 安装
+###Cordova 安装
 
 新版的cordova可以直接通过nodejs的npm进行直接安装了
 
@@ -80,20 +80,20 @@ Cordova build android
 
 Cordova emulate android
 
-注： 查看当前设备列表  adb devices
-
-Npm 安装一些包可能失败：通过镜像使用方法： 有三种方法：
-
-1.通过config命令
-
-npm config set registry http://registry.cnpmjs.org
-
-npm info underscore （如果上面配置正确这个命令会有字符串response）
-
-2.命令行指定
-
-npm –registry http://registry.cnpmjs.org info underscore
-
-3.编辑 ~/.npmrc 加入下面内容
-
-registry = http://registry.cnpmjs.org
+    注： 查看当前设备列表  adb devices
+    
+    Npm 安装一些包可能失败：通过镜像使用方法： 有三种方法：
+    
+    1.通过config命令
+    
+    npm config set registry http://registry.cnpmjs.org
+    
+    npm info underscore （如果上面配置正确这个命令会有字符串response）
+    
+    2.命令行指定
+    
+    npm –registry http://registry.cnpmjs.org info underscore
+    
+    3.编辑 ~/.npmrc 加入下面内容
+    
+    registry = http://registry.cnpmjs.org
