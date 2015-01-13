@@ -7,10 +7,12 @@ category: blog
 ##基于seajs和grunt的前端目录结构
 <pre>
 |--static
-    |-- demo 例子
-        |-- app 业务demo
-    |-- js 源码
+    |--demo 例子
+        |--app 业务demo
+    |--js 源码
         |--app 业务逻辑代码
+    |--theme 
+        |--app 业务的样式
     |--public  公共资源
         |--js 部署代码
             |--dist  部署业务逻辑代码
